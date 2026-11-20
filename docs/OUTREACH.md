@@ -27,14 +27,14 @@ Only official public contacts: a township or county web page, the county's offic
 ## Phase 1: drafts only (current)
 
 1. Build drafts: `node scripts/outreach/build-drafts.mjs --contacts <contacts.csv> --out <private dir>`. Questions come from the record's gaps (unknown tent/RV/yurt/shed rules, unknown day limit, no sanitation finding) plus any township-specific question in `questions.json` (`by_id`, `by_next_action`), max 5, always ending with a request for the ordinance citation.
-2. Claude creates each draft in Gmail under the label **Project Woods** and sets `outreach_status: drafted`.
+2. Claude creates each draft in Gmail and sets `outreach_status: drafted`. Wording follows the emails Greg sent by hand: one-sentence intro, up to 5 numbered questions, "Best, Greg". County-wide answers already received go in `by_county` so township emails don't re-ask them.
 3. Greg reviews and sends from Gmail. Nothing is sent by Claude.
 
 ## Reply tracking
 
 On a schedule (or when asked), Claude:
 
-1. Searches Gmail for threads under **Project Woods** with new messages from the township.
+1. Searches Gmail for threads under **Project Woods** with new messages from the township. Gmail sub-labels track state: `Project Woods/Awaiting reply`, `Project Woods/Replied`, `Project Woods/Needs Greg`, `Project Woods/Property leads`.
 2. Records the thread in the private log and sets `replied`.
 3. Extracts answers into the record's fields in a PR: per-activity rules, day limits, acreage, summaries, and an `official_response` source whose URL is the township's public page and whose `note` is a one-line sanitized summary ("Clerk replied by email 2026-12-03: owner tent camping allowed 14 days/yr with permit"). No names, addresses, phone numbers, or quoted correspondence.
 4. Only marks `confirmed_*` when the reply is explicit and cites or attaches an ordinance; otherwise `promising_conditional` / `reported_restrictive` with the reasoning in `evidence_summary`.
