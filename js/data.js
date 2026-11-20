@@ -27,7 +27,25 @@ export async function loadResearch() {
   return { records, byCounty, sourceById, updated: towns.updated };
 }
 
-export function findTownship(byCounty, county, name) {
-  const k = townKey(name);
-  return (byCounty[county] || []).find((r) => townKey(r.township) === k);
+// Census county subdivisions are townships, charter townships or cities ("Evart city" vs "Evart township").
+export function featureKind(props) {
+  const s = String(props?.namelsad || '');
+  if (/\bcity$/i.test(s)) return 'city';
+  if (/\btownship$/i.test(s)) return 'township';
+  return null;
+}
+
+// Match a boundary feature ({ geoid?, name, namelsad? }) to a research record.
+// GEOID wins when both sides have one; otherwise exact name within the county, respecting city vs township.
+export function findRecordForFeature(byCounty, county, props) {
+  const rs = byCounty[county] || [];
+  if (props.geoid) {
+    const hit = rs.find((r) => r.geoid === props.geoid);
+    if (hit) return hit;
+  }
+  const k = townKey(props.name);
+  const kind = featureKind(props);
+  return rs.find((r) => townKey(r.township) === k
+    && (!kind || r.jurisdiction_type === kind)
+    && (!r.geoid || !props.geoid || r.geoid === props.geoid));
 }

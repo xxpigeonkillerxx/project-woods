@@ -1,6 +1,6 @@
 // Validates research data files. Run: node scripts/validate.mjs
 // No dependencies. Exits non-zero on errors; warnings are informational.
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { RESEARCH_STATUS, ZONING_STATUS, CAMPING_OUTLOOK, ACTIVITY, SOURCE_TYPE, OUTREACH_STATUS } from '../js/config.js';
 
 const errors = [];
@@ -78,6 +78,54 @@ for (const [i, r] of towns.records.entries()) {
   for (const re of PRIVATE) if (re.test(text)) errors.push(`${at}: looks like private contact info (${re}) — keep correspondence details off the public site`);
 }
 for (const id of sourceIds) if (!usedSources.has(id)) warnings.push(`sources: ${id} is not referenced by any township`);
+
+// Bundled boundaries: files listed in the manifest exist, and record GEOIDs point at real features.
+const exists = (p) => existsSync(new URL(`../${p}`, import.meta.url));
+const manifest = load('data/boundaries/manifest.json');
+const countyGeoids = new Map(); // county geoid -> name
+const subGeoids = new Map(); // subdivision geoid -> county geoid
+if (manifest) {
+  const counties = load(`data/boundaries/${manifest.counties?.file}`);
+  for (const f of counties?.features || []) countyGeoids.set(f.properties.geoid, f.properties.name);
+  if (countyGeoids.size !== 83) errors.push(`boundaries: expected 83 counties, found ${countyGeoids.size}`);
+  for (const [geoid, entry] of Object.entries(manifest.townships?.by_county || {})) {
+    if (!countyGeoids.has(geoid)) errors.push(`boundaries: township file for unknown county ${geoid}`);
+    if (!exists(`data/boundaries/${entry.file}`)) { errors.push(`boundaries: missing ${entry.file}`); continue; }
+    for (const f of load(`data/boundaries/${entry.file}`)?.features || []) subGeoids.set(f.properties.geoid, geoid);
+  }
+  for (const [layer, entry] of Object.entries(manifest.public_land?.by_county || {}))
+    if (!exists(`data/boundaries/${entry.file}`)) errors.push(`boundaries: missing public land file ${entry.file} (${layer})`);
+  const nameToGeoid = new Map([...countyGeoids].map(([g, n]) => [n, g]));
+  for (const r of towns.records) {
+    if (r.geoid == null) continue;
+    const at = `townships ${r.id}`;
+    const cg = nameToGeoid.get(r.county);
+    if (r.jurisdiction_type === 'county') { if (r.geoid !== cg) errors.push(`${at}: county geoid should be ${cg}`); continue; }
+    if (!/^\d{10}$/.test(r.geoid)) { errors.push(`${at}: geoid must be a 10-digit county subdivision GEOID`); continue; }
+    if (!r.geoid.startsWith(cg)) errors.push(`${at}: geoid ${r.geoid} is not in ${r.county} County (${cg})`);
+    else if (manifest.townships?.by_county?.[cg] && !subGeoids.has(r.geoid)) errors.push(`${at}: geoid ${r.geoid} not in bundled boundaries`);
+  }
+}
+
+// Drive times: every number needs a routing basis; nothing estimated by hand.
+const travel = load('data/travel.json');
+if (travel) {
+  const origins = new Set((travel.origins || []).map((o) => o.id));
+  for (const o of travel.origins || []) if (typeof o.lat !== 'number' || typeof o.lon !== 'number' || !o.basis) errors.push(`travel origin ${o.id}: needs lat, lon, basis`);
+  const seen = new Set();
+  for (const [i, t] of (travel.routes || []).entries()) {
+    const at = `travel.routes[${i}] ${t.target_id}`;
+    if (!origins.has(t.origin_id)) errors.push(`${at}: unknown origin ${t.origin_id}`);
+    if (!['township_point', 'property'].includes(t.target_type)) errors.push(`${at}: target_type must be township_point or property`);
+    if (!['routed', 'manual_lookup'].includes(t.method)) errors.push(`${at}: method must be routed or manual_lookup`);
+    if (!t.engine || !isDate(t.retrieved || '')) errors.push(`${at}: needs engine and retrieved date`);
+    if (t.drive_minutes != null && (typeof t.drive_minutes !== 'number' || t.drive_minutes < 0)) errors.push(`${at}: bad drive_minutes`);
+    if (t.target_type === 'township_point' && subGeoids.size && !subGeoids.has(t.target_id)) errors.push(`${at}: unknown township GEOID`);
+    const key = `${t.origin_id}|${t.target_type}|${t.target_id}`;
+    if (seen.has(key)) errors.push(`${at}: duplicate route`);
+    seen.add(key);
+  }
+}
 
 finish();
 function finish() {

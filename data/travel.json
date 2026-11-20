@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "note": "Road drive times from an origin to a target point. Every entry comes from a routing engine or a recorded manual lookup; nothing is estimated by hand. Empty until routing is run.",
+  "origins": [
+    {
+      "id": "ann-arbor",
+      "label": "Ann Arbor (city center)",
+      "lat": 42.2814,
+      "lon": -83.7483,
+      "basis": "Ann Arbor city coordinates (GNIS / Wikipedia). Replace with a preferred start point if wanted; all routes would then need re-running."
+    }
+  ],
+  "routes": []
+}

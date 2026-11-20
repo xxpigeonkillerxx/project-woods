@@ -1,1 +1,14 @@
-{"type":"module"}
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "build:boundaries": "node scripts/build-boundaries.mjs all",
+    "link:geoids": "node scripts/link-geoids.mjs"
+  },
+  "devDependencies": {
+    "mapshaper": "0.8.6",
+    "topojson-client": "3.1.0",
+    "us-atlas": "3.0.1"
+  }
+}

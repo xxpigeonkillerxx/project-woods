@@ -92,3 +92,5 @@ header h1{font-size:27px}
 #ttable tbody tr:hover td.c-township{background:#f5f8f3}
 #ttable tbody tr.sel td.c-township{background:#e3efe2}
 #ttable td.c-township{width:130px;max-width:150px;white-space:normal}
+.toggle{font-size:13px;color:#234737;display:inline-flex;gap:5px;align-items:center}
+.toggle[hidden]{display:none}
