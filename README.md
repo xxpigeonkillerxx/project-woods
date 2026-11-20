@@ -13,8 +13,13 @@ js/app.js           map, panels
 js/table.js         township comparison table
 data/townships.json research records (public, sanitized)
 data/sources.json   evidence sources
+data/travel.json    routed drive times (empty until routing is run)
+data/boundaries/    bundled Census county + township boundaries (generated; see docs/BOUNDARIES.md)
 vendor/leaflet/     Leaflet 1.9.4 (BSD-2)
-scripts/validate.mjs data checks (run in CI on every PR)
+scripts/validate.mjs data checks (run in CI on every PR; no dependencies)
+scripts/build-boundaries.mjs   regenerates data/boundaries (dev only: npm install first)
+scripts/link-geoids.mjs        attaches Census GEOIDs to research records
+scripts/compute-drive-times.mjs routes Ann Arbor → every township point
 docs/DATA.md        field definitions and research handoff format
 ```
 

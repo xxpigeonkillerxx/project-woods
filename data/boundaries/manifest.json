@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "counties": {
+    "file": "counties.geojson",
+    "count": 83,
+    "source": "U.S. Census Bureau cartographic boundary file cb_2017_us_county_5m, via us-atlas@3 (npm)",
+    "source_url": "https://www2.census.gov/geo/tiger/GENZ2017/shp/",
+    "vintage": "2017",
+    "simplification": "us-atlas counties-10m quantization",
+    "built": "2026-11-20"
+  },
+  "note": "Simplified for display. Not a legal or survey boundary."
+}

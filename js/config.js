@@ -54,7 +54,9 @@ export const COVERAGE = [
   { min: 1, color: '#c3d5e6', label: '1 record' },
 ];
 
-export const COUNTY_GEOJSON_URL =
-  'https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json';
+// Bundled Census boundaries (built by scripts/build-boundaries.mjs). Same origin, so they load whenever the site does.
+export const BOUNDARY_MANIFEST_URL = 'data/boundaries/manifest.json';
+// Live State of Michigan service: used only for counties whose township file is not bundled yet,
+// or if a bundled file fails to load.
 export const TOWNSHIP_SERVICE_URL =
   'https://mdotgis.state.mi.us/arcgis/rest/services/Reference/BoundaryPub/FeatureServer/441/query';

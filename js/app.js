@@ -1,8 +1,8 @@
 import {
   RESEARCH_STATUS, ZONING_STATUS, CAMPING_OUTLOOK, ACTIVITY, SOURCE_TYPE,
-  NONE_COLOR, UNMATCHED_TOWN_COLOR, COVERAGE, COUNTY_GEOJSON_URL, TOWNSHIP_SERVICE_URL,
+  NONE_COLOR, UNMATCHED_TOWN_COLOR, COVERAGE, BOUNDARY_MANIFEST_URL, TOWNSHIP_SERVICE_URL,
 } from './config.js';
-import { norm, loadResearch, findTownship, townKey } from './data.js';
+import { norm, loadResearch, findRecordForFeature, featureKind } from './data.js';
 import { initTable } from './table.js';
 
 const COUNTY_NAMES = ['Alcona', 'Alger', 'Allegan', 'Alpena', 'Antrim', 'Arenac', 'Baraga', 'Barry', 'Bay', 'Benzie', 'Berrien', 'Branch', 'Calhoun', 'Cass', 'Charlevoix', 'Cheboygan', 'Chippewa', 'Clare', 'Clinton', 'Crawford', 'Delta', 'Dickinson', 'Eaton', 'Emmet', 'Genesee', 'Gladwin', 'Gogebic', 'Grand Traverse', 'Gratiot', 'Hillsdale', 'Houghton', 'Huron', 'Ingham', 'Ionia', 'Iosco', 'Iron', 'Isabella', 'Jackson', 'Kalamazoo', 'Kalkaska', 'Kent', 'Keweenaw', 'Lake', 'Lapeer', 'Leelanau', 'Lenawee', 'Livingston', 'Luce', 'Mackinac', 'Macomb', 'Manistee', 'Marquette', 'Mason', 'Mecosta', 'Menominee', 'Midland', 'Missaukee', 'Monroe', 'Montcalm', 'Montmorency', 'Muskegon', 'Newaygo', 'Oakland', 'Oceana', 'Ogemaw', 'Ontonagon', 'Osceola', 'Oscoda', 'Otsego', 'Ottawa', 'Presque Isle', 'Roscommon', 'Saginaw', 'Sanilac', 'Schoolcraft', 'Shiawassee', 'St. Clair', 'St. Joseph', 'Tuscola', 'Van Buren', 'Washtenaw', 'Wayne', 'Wexford'];
@@ -16,6 +16,8 @@ let townshipLayer = null;
 let townStyle = null;
 let selected = null;
 let countyFeatures = [];
+let boundaryManifest = null;
+let publicLayer = null;
 let table = null;
 let pendingTown = null; // township to select once boundaries load (from a table click)
 
@@ -23,6 +25,10 @@ const map = L.map('map', { zoomSnap: 0.25 }).setView([44.65, -85.4], 6.4);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© OpenStreetMap contributors', maxZoom: 18,
 }).addTo(map);
+// Public land draws above township fills but never takes clicks.
+map.createPane('publicLand');
+map.getPane('publicLand').style.zIndex = 450;
+map.getPane('publicLand').style.pointerEvents = 'none';
 const homeBounds = L.latLngBounds([41.6, -90.6], [48.5, -82.2]);
 
 function updateLabels() {
@@ -73,8 +79,17 @@ function setLoading(msg) {
 }
 
 function countyName(f) {
-  return f.properties?.NAME || f.properties?.name || 'Unknown';
+  return f.properties?.name || 'Unknown';
 }
+
+// Normalize township features from either source to { geoid, name, namelsad }.
+function townProps(f) {
+  const p = f.properties || {};
+  if (p.geoid) return p;
+  const raw = String(p.Name || p.NAME || 'Unknown township');
+  return { geoid: null, name: raw.replace(/\s+(charter\s+)?township$/i, ''), namelsad: /township$/i.test(raw) ? raw : null };
+}
+const townLabel = (p) => (featureKind(p) === 'city' ? `${p.name} (city)` : p.name);
 
 function pill(text, cls = '') {
   return `<span class="pill ${cls}">${esc(text)}</span>`;
@@ -138,8 +153,9 @@ function renderTownList(rs) {
     : '<p class="muted">No township research recorded yet. This county is a research gap, not necessarily unsuitable.</p>';
 }
 
-function selectTownship(name) {
-  const r = findTownship(research.byCounty, selected, name);
+function selectTownship(props) {
+  const r = findRecordForFeature(research.byCounty, selected, props);
+  const name = props.namelsad || props.name;
   const el = $('selectedTown');
   if (!el) return;
   table?.setSelected(r ? r.id : null);
@@ -163,27 +179,71 @@ function drawCounties() {
   }).addTo(map);
 }
 
+async function fetchJSON(url) {
+  const response = await fetch(url);
+  if (!response.ok) throw Error(`HTTP ${response.status}`);
+  return response.json();
+}
+
+// Bundled Census file first; the live State of Michigan service only if this county isn't bundled or the file fails.
+async function fetchTownships(feature) {
+  const geoid = feature.properties.geoid;
+  const entry = boundaryManifest?.townships?.by_county?.[geoid];
+  let bundledError = null;
+  if (entry) {
+    try {
+      const geo = await fetchJSON(`data/boundaries/${entry.file}`);
+      if (geo.features?.length) return { geo, source: `U.S. Census ${boundaryManifest.townships.vintage} boundaries (bundled)` };
+    } catch (e) { bundledError = e; }
+  }
+  const params = new URLSearchParams({
+    where: `FipsCountyCodeText='${geoid.slice(2)}'`, outFields: 'Name,FipsCountyCodeText', outSR: '4326', returnGeometry: 'true', f: 'geojson',
+  });
+  try {
+    const geo = await fetchJSON(`${TOWNSHIP_SERVICE_URL}?${params}`);
+    if (!geo.features?.length) throw Error('No township polygons returned');
+    return { geo, source: 'State of Michigan map service (live)' };
+  } catch (e) {
+    throw Error(bundledError ? `bundled file: ${bundledError.message}; live service: ${e.message}` : `State of Michigan map service: ${e.message}`);
+  }
+}
+
+// Public land overlay (state forest, national forest, etc.). Drawn only for counties with a bundled file,
+// listed in manifest.public_land.by_county; the toggle stays hidden until such data exists.
+async function loadPublicLand(feature) {
+  if (publicLayer) { map.removeLayer(publicLayer); publicLayer = null; }
+  const entry = boundaryManifest?.public_land?.by_county?.[feature.properties.geoid];
+  if (!entry || !$('publicLand')?.checked) return;
+  try {
+    const geo = await fetchJSON(`data/boundaries/${entry.file}`);
+    if (selected !== countyName(feature)) return;
+    publicLayer = L.geoJSON(geo, {
+      style: { color: '#1d5c3a', weight: 1, dashArray: '3 3', fillColor: '#2e7d4f', fillOpacity: 0.28 },
+      interactive: false,
+      pane: 'publicLand',
+    }).addTo(map);
+  } catch (e) {
+    const st = $('townStatus');
+    if (st) st.insertAdjacentHTML('beforeend', `<p class="muted">Public land layer could not be loaded (${esc(e.message)}).</p>`);
+  }
+}
+
 async function loadTownships(name) {
   if (townshipLayer) { map.removeLayer(townshipLayer); townshipLayer = null; }
   const feature = countyFeatures.find((f) => countyName(f) === name);
-  const code = String(feature?.id || '').padStart(5, '0').slice(-3);
   if (!feature) return;
-  const params = new URLSearchParams({
-    where: `FipsCountyCodeText='${code}'`, outFields: 'Name,FipsCountyCodeText', outSR: '4326', returnGeometry: 'true', f: 'geojson',
-  });
+  loadPublicLand(feature);
   let geo;
+  let source;
   setLoading('Loading township boundaries…');
   try {
-    const response = await fetch(`${TOWNSHIP_SERVICE_URL}?${params}`);
-    if (!response.ok) throw Error(`HTTP ${response.status}`);
-    geo = await response.json();
-    if (!geo.features?.length) throw Error('No township polygons returned');
+    ({ geo, source } = await fetchTownships(feature));
   } catch (e) {
     if (selected !== name) return;
     setLoading('');
     const st = $('townStatus');
     if (st) {
-      st.innerHTML = `<p class="muted">Township boundaries could not be loaded from the State of Michigan map service (${esc(e.message)}). Research records remain listed below.</p><button class="retry" id="retryTowns">Try again</button>`;
+      st.innerHTML = `<p class="muted">Township boundaries could not be loaded (${esc(e.message)}). Research records remain listed below.</p><button class="retry" id="retryTowns">Try again</button>`;
       $('retryTowns').onclick = () => { st.innerHTML = ''; loadTownships(name); };
       $('townList').hidden = false;
     }
@@ -191,29 +251,31 @@ async function loadTownships(name) {
   }
   if (selected !== name) return;
   setLoading('');
+  const st = $('townStatus');
+  if (st) st.innerHTML = `<p class="muted">Boundaries: ${esc(source)}. Simplified for display; confirm a parcel's township with the county.</p>`;
   townStyle = (f) => {
-    const r = findTownship(research.byCounty, name, f.properties.Name || f.properties.NAME);
+    const r = findRecordForFeature(research.byCounty, name, townProps(f));
     return { color: '#42634d', weight: 1.4, fillColor: townColor(r), fillOpacity: 0.62 };
   };
   townshipLayer = L.geoJSON(geo, {
     style: (f) => townStyle(f),
     onEachFeature: (f, l) => {
-      const n = f.properties.Name || f.properties.NAME || 'Unknown township';
+      const p = townProps(f);
       l.on('click', (e) => {
         L.DomEvent.stopPropagation(e);
         townshipLayer.resetStyle();
         l.setStyle({ color: '#123b2b', weight: 3, fillOpacity: 0.8 });
-        selectTownship(n);
+        selectTownship(p);
       });
-      l.bindTooltip(n.replace(/ Township$/i, ''), { permanent: true, direction: 'center', className: 'townlabel', opacity: 0.95 });
+      l.bindTooltip(esc(townLabel(p)), { permanent: true, direction: 'center', className: 'townlabel', opacity: 0.95 });
     },
   }).addTo(map);
   updateLabels();
   if (pendingTown) {
-    const want = townKey(pendingTown.township);
+    const want = pendingTown;
     pendingTown = null;
     townshipLayer.eachLayer((l) => {
-      if (townKey(l.feature.properties.Name || l.feature.properties.NAME) === want) l.setStyle({ color: '#123b2b', weight: 3, fillOpacity: 0.8 });
+      if (findRecordForFeature(research.byCounty, name, townProps(l.feature)) === want) l.setStyle({ color: '#123b2b', weight: 3, fillOpacity: 0.8 });
     });
   }
 }
@@ -232,21 +294,24 @@ document.addEventListener('click', (e) => {
   $('tableSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
-function loadCounties() {
+async function loadCounties() {
   setLoading('Loading county boundaries…');
-  fetch(COUNTY_GEOJSON_URL)
-    .then((r) => { if (!r.ok) throw Error(`HTTP ${r.status}`); return r.json(); })
-    .then((g) => {
-      setLoading('');
-      countyFeatures = g.features.filter((f) => String(f.id).padStart(5, '0').startsWith('26'));
-      drawCounties();
-      map.fitBounds(countyLayer.getBounds());
-    })
-    .catch((e) => {
-      setLoading('');
-      $('details').innerHTML = `<h2>Map connection unavailable</h2><p class="muted">County boundaries could not be loaded (${esc(e.message)}). Check your connection and try again.</p><button class="retry" id="retryCounties">Try again</button>`;
-      $('retryCounties').onclick = loadCounties;
-    });
+  try {
+    boundaryManifest = await fetchJSON(BOUNDARY_MANIFEST_URL);
+    const g = await fetchJSON(`data/boundaries/${boundaryManifest.counties.file}`);
+    setLoading('');
+    countyFeatures = g.features;
+    if (boundaryManifest.public_land) {
+      $('publicLandToggle').hidden = false;
+      $('publicLand').onchange = () => { const f = countyFeatures.find((x) => countyName(x) === selected); if (f) loadPublicLand(f); };
+    }
+    drawCounties();
+    map.fitBounds(countyLayer.getBounds());
+  } catch (e) {
+    setLoading('');
+    $('details').innerHTML = `<h2>Map connection unavailable</h2><p class="muted">County boundaries could not be loaded (${esc(e.message)}). Check your connection and try again.</p><button class="retry" id="retryCounties">Try again</button>`;
+    $('retryCounties').onclick = loadCounties;
+  }
 }
 
 $('home').onclick = () => {
@@ -254,6 +319,7 @@ $('home').onclick = () => {
   setLoading('');
   updateLabels();
   if (townshipLayer) { map.removeLayer(townshipLayer); townshipLayer = null; }
+  if (publicLayer) { map.removeLayer(publicLayer); publicLayer = null; }
   map.fitBounds(countyLayer?.getBounds() || homeBounds);
   $('details').innerHTML = '<h2>Choose a county</h2><p class="muted">Tap a county to zoom in and explore its townships.</p>';
 };
