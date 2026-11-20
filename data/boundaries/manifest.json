@@ -3,11 +3,353 @@
   "counties": {
     "file": "counties.geojson",
     "count": 83,
-    "source": "U.S. Census Bureau cartographic boundary file cb_2017_us_county_5m, via us-atlas@3 (npm)",
-    "source_url": "https://www2.census.gov/geo/tiger/GENZ2017/shp/",
-    "vintage": "2017",
-    "simplification": "us-atlas counties-10m quantization",
+    "source": "U.S. Census Bureau cartographic boundary file cb_2023_us_county_500k",
+    "source_url": "https://www2.census.gov/geo/tiger/GENZ2023/shp/cb_2023_us_county_500k.zip",
+    "vintage": "2023",
+    "simplification": "visvalingam 8%, keep-shapes",
     "built": "2026-11-20"
   },
-  "note": "Simplified for display. Not a legal or survey boundary."
+  "note": "Simplified for display. Not a legal or survey boundary.",
+  "townships": {
+    "source": "U.S. Census Bureau cartographic boundary file cb_2023_26_cousub_500k (county subdivisions: townships, charter townships, cities)",
+    "source_url": "https://www2.census.gov/geo/tiger/GENZ2023/shp/cb_2023_26_cousub_500k.zip",
+    "vintage": "2023",
+    "simplification": "visvalingam 15%, keep-shapes",
+    "count": 1540,
+    "built": "2026-11-20",
+    "by_county": {
+      "26001": {
+        "file": "townships/26001.geojson",
+        "count": 12
+      },
+      "26003": {
+        "file": "townships/26003.geojson",
+        "count": 9
+      },
+      "26005": {
+        "file": "townships/26005.geojson",
+        "count": 33
+      },
+      "26007": {
+        "file": "townships/26007.geojson",
+        "count": 9
+      },
+      "26009": {
+        "file": "townships/26009.geojson",
+        "count": 15
+      },
+      "26011": {
+        "file": "townships/26011.geojson",
+        "count": 15
+      },
+      "26013": {
+        "file": "townships/26013.geojson",
+        "count": 5
+      },
+      "26015": {
+        "file": "townships/26015.geojson",
+        "count": 17
+      },
+      "26017": {
+        "file": "townships/26017.geojson",
+        "count": 19
+      },
+      "26019": {
+        "file": "townships/26019.geojson",
+        "count": 13
+      },
+      "26021": {
+        "file": "townships/26021.geojson",
+        "count": 30
+      },
+      "26023": {
+        "file": "townships/26023.geojson",
+        "count": 18
+      },
+      "26025": {
+        "file": "townships/26025.geojson",
+        "count": 23
+      },
+      "26027": {
+        "file": "townships/26027.geojson",
+        "count": 17
+      },
+      "26029": {
+        "file": "townships/26029.geojson",
+        "count": 18
+      },
+      "26031": {
+        "file": "townships/26031.geojson",
+        "count": 20
+      },
+      "26033": {
+        "file": "townships/26033.geojson",
+        "count": 17
+      },
+      "26035": {
+        "file": "townships/26035.geojson",
+        "count": 18
+      },
+      "26037": {
+        "file": "townships/26037.geojson",
+        "count": 22
+      },
+      "26039": {
+        "file": "townships/26039.geojson",
+        "count": 7
+      },
+      "26041": {
+        "file": "townships/26041.geojson",
+        "count": 16
+      },
+      "26043": {
+        "file": "townships/26043.geojson",
+        "count": 10
+      },
+      "26045": {
+        "file": "townships/26045.geojson",
+        "count": 22
+      },
+      "26047": {
+        "file": "townships/26047.geojson",
+        "count": 18
+      },
+      "26049": {
+        "file": "townships/26049.geojson",
+        "count": 28
+      },
+      "26051": {
+        "file": "townships/26051.geojson",
+        "count": 17
+      },
+      "26053": {
+        "file": "townships/26053.geojson",
+        "count": 9
+      },
+      "26055": {
+        "file": "townships/26055.geojson",
+        "count": 14
+      },
+      "26057": {
+        "file": "townships/26057.geojson",
+        "count": 19
+      },
+      "26059": {
+        "file": "townships/26059.geojson",
+        "count": 22
+      },
+      "26061": {
+        "file": "townships/26061.geojson",
+        "count": 16
+      },
+      "26063": {
+        "file": "townships/26063.geojson",
+        "count": 31
+      },
+      "26065": {
+        "file": "townships/26065.geojson",
+        "count": 21
+      },
+      "26067": {
+        "file": "townships/26067.geojson",
+        "count": 19
+      },
+      "26069": {
+        "file": "townships/26069.geojson",
+        "count": 14
+      },
+      "26071": {
+        "file": "townships/26071.geojson",
+        "count": 11
+      },
+      "26073": {
+        "file": "townships/26073.geojson",
+        "count": 18
+      },
+      "26075": {
+        "file": "townships/26075.geojson",
+        "count": 20
+      },
+      "26077": {
+        "file": "townships/26077.geojson",
+        "count": 19
+      },
+      "26079": {
+        "file": "townships/26079.geojson",
+        "count": 12
+      },
+      "26081": {
+        "file": "townships/26081.geojson",
+        "count": 30
+      },
+      "26083": {
+        "file": "townships/26083.geojson",
+        "count": 5
+      },
+      "26085": {
+        "file": "townships/26085.geojson",
+        "count": 15
+      },
+      "26087": {
+        "file": "townships/26087.geojson",
+        "count": 21
+      },
+      "26089": {
+        "file": "townships/26089.geojson",
+        "count": 12
+      },
+      "26091": {
+        "file": "townships/26091.geojson",
+        "count": 26
+      },
+      "26093": {
+        "file": "townships/26093.geojson",
+        "count": 19
+      },
+      "26095": {
+        "file": "townships/26095.geojson",
+        "count": 4
+      },
+      "26097": {
+        "file": "townships/26097.geojson",
+        "count": 13
+      },
+      "26099": {
+        "file": "townships/26099.geojson",
+        "count": 24
+      },
+      "26101": {
+        "file": "townships/26101.geojson",
+        "count": 15
+      },
+      "26103": {
+        "file": "townships/26103.geojson",
+        "count": 22
+      },
+      "26105": {
+        "file": "townships/26105.geojson",
+        "count": 17
+      },
+      "26107": {
+        "file": "townships/26107.geojson",
+        "count": 17
+      },
+      "26109": {
+        "file": "townships/26109.geojson",
+        "count": 16
+      },
+      "26111": {
+        "file": "townships/26111.geojson",
+        "count": 18
+      },
+      "26113": {
+        "file": "townships/26113.geojson",
+        "count": 17
+      },
+      "26115": {
+        "file": "townships/26115.geojson",
+        "count": 20
+      },
+      "26117": {
+        "file": "townships/26117.geojson",
+        "count": 23
+      },
+      "26119": {
+        "file": "townships/26119.geojson",
+        "count": 8
+      },
+      "26121": {
+        "file": "townships/26121.geojson",
+        "count": 23
+      },
+      "26123": {
+        "file": "townships/26123.geojson",
+        "count": 28
+      },
+      "26125": {
+        "file": "townships/26125.geojson",
+        "count": 52
+      },
+      "26127": {
+        "file": "townships/26127.geojson",
+        "count": 17
+      },
+      "26129": {
+        "file": "townships/26129.geojson",
+        "count": 16
+      },
+      "26131": {
+        "file": "townships/26131.geojson",
+        "count": 11
+      },
+      "26133": {
+        "file": "townships/26133.geojson",
+        "count": 18
+      },
+      "26135": {
+        "file": "townships/26135.geojson",
+        "count": 6
+      },
+      "26137": {
+        "file": "townships/26137.geojson",
+        "count": 10
+      },
+      "26139": {
+        "file": "townships/26139.geojson",
+        "count": 23
+      },
+      "26141": {
+        "file": "townships/26141.geojson",
+        "count": 16
+      },
+      "26143": {
+        "file": "townships/26143.geojson",
+        "count": 11
+      },
+      "26145": {
+        "file": "townships/26145.geojson",
+        "count": 30
+      },
+      "26147": {
+        "file": "townships/26147.geojson",
+        "count": 31
+      },
+      "26149": {
+        "file": "townships/26149.geojson",
+        "count": 18
+      },
+      "26151": {
+        "file": "townships/26151.geojson",
+        "count": 30
+      },
+      "26153": {
+        "file": "townships/26153.geojson",
+        "count": 9
+      },
+      "26155": {
+        "file": "townships/26155.geojson",
+        "count": 22
+      },
+      "26157": {
+        "file": "townships/26157.geojson",
+        "count": 25
+      },
+      "26159": {
+        "file": "townships/26159.geojson",
+        "count": 22
+      },
+      "26161": {
+        "file": "townships/26161.geojson",
+        "count": 26
+      },
+      "26163": {
+        "file": "townships/26163.geojson",
+        "count": 43
+      },
+      "26165": {
+        "file": "townships/26165.geojson",
+        "count": 18
+      }
+    }
+  }
 }

@@ -6,9 +6,9 @@ The site is static: everything the map draws ships in `data/boundaries/`, so it 
 
 | Layer | File | Source | Status |
 |---|---|---|---|
-| Counties | `counties.geojson` | Census cartographic boundaries | **Bundled.** Currently the 2017 edition via the `us-atlas` npm package (Michigan county lines are unchanged since). Rebuild from Census 2023 500k when the build can reach www2.census.gov. |
-| Townships / cities (county subdivisions) | `townships/<county GEOID>.geojson` | Census `cb_2023_26_cousub_500k` | **Not yet built.** Until it is, the map loads township lines live from the State of Michigan (MDOT) service, as before. |
-| Township points | `township-points.json` | Interior point of each Census subdivision polygon | Produced by the township build. Routing targets only. |
+| Counties | `counties.geojson` | Census cartographic boundaries | **Bundled** (Census 2023 500k, built 2026-11-20). |
+| Townships / cities (county subdivisions) | `townships/<county GEOID>.geojson` | Census `cb_2023_26_cousub_500k` | **Bundled** for all 83 counties (1,540 subdivisions, Census 2023, built 2026-11-20). The live State of Michigan (MDOT) service is only a fallback if a file fails to load. |
+| Township points | `township-points.json` | Interior point of each Census subdivision polygon | **Bundled** (1,540 points). Routing targets only. |
 | Public land | `public/<county GEOID>.geojson` (listed in `manifest.public_land.by_county`) | to be chosen, see below | **Hook only.** The map shows a "Public land" toggle once the manifest lists any file. |
 
 `manifest.json` records the source, vintage, simplification and build date of each layer. The map reads it to decide, county by county, whether to use a bundled township file or the live service. If a bundled file fails to load, it also falls back to the live service.
