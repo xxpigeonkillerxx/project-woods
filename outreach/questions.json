@@ -29,6 +29,12 @@
     },
     "Separate personal camping from campground": {
       "questions": ["We would only be camping ourselves, not running a campground. Is an owner camping on their own land treated differently from a campground under the township's rules?"]
+    },
+    "Confirm no zoning applies and ask about camping rules": {
+      "questions": [
+        "The county's 2021 permitting guide says only Lake City and McBain have zoning. Is it correct that the township has no zoning ordinance, and that no county zoning ordinance applies here either?",
+        "Apart from zoning, does the township have any ordinance that regulates camping, tents, or camping trailers on private land?"
+      ]
     }
   },
   "by_id": {
@@ -47,6 +53,24 @@
     "ogemaw--county-zoned-parcels": {
       "skip": true,
       "reason": "County-level record; contact the specific township or county zoning office once a target township is chosen."
+    },
+    "missaukee--caldwell": {
+      "questions": ["A handwritten note on the township Mobile Home Ordinance No. 7 seems to bar trailers older than 1976 \"except those used explicitly for camping.\" Is that note part of the adopted ordinance, and are there other rules for keeping a camping trailer on a vacant parcel?"]
+    },
+    "missaukee--forest": {
+      "questions": ["Does the township nuisance ordinance adopted in 2025 say anything about camping, tents, or camping trailers on private land?"]
+    },
+    "missaukee--holland": {
+      "questions": ["Our records show the township repealed its zoning ordinance in 2003. Has any new zoning ordinance been adopted since then, and does any county zoning apply in its place?"]
+    },
+    "missaukee--lake": {
+      "questions": ["The county website lists Lake Township Ordinance No. 13 (Zoning, 1997) as a proposed zoning ordinance that failed at election. Is it correct that it never took effect and the township has no zoning today?", "Does Blight Prevention Ordinance No. 22 regulate camping trailers, tents or temporary structures on a vacant parcel?"]
+    },
+    "missaukee--pioneer": {
+      "questions": ["We saw the 1983 rule banning overnight camping on township property at Loon Lake. Does any ordinance address camping by an owner on their own private land elsewhere in the township?"]
+    },
+    "missaukee--reeder": {
+      "questions": ["Do the Blight Prevention amendment or the Anti-Noise and Public Nuisance Ordinance address camping, tents or camping trailers on private land?"]
     }
   }
 }
