@@ -1,0 +1,52 @@
+{
+  "_note": "Question library for township outreach drafts. Public file: no contact details here. Edited by Greg/Claude; build-drafts.mjs picks questions from the gaps in each township record.",
+  "subject": "Question about recreational camping on vacant land in {place}",
+  "intro": "My name is {sender_name} and I live in {sender_city}. My family is looking for a small wooded parcel to use for recreation in {place}. The plan is tent camping on weekends at first, and over time perhaps a small shed or similar simple structure. We are not planning to build a house right away, and we want to be sure we follow local rules before we buy. We have not chosen a specific parcel yet.",
+  "ask_line": "Could you help with a few questions?",
+  "redirect": "If these questions are better directed to someone else, such as the zoning administrator, building official, or the county, I would be grateful if you could point me to the right person.",
+  "closing": "Thank you very much for your time.",
+  "max_questions": 5,
+  "generic": {
+    "tent": { "when": "tent_camping is unknown", "text": "Can a property owner tent camp on their own vacant parcel (no house on it)? If so, is a permit or registration required?" },
+    "days": { "when": "max_days_per_year is null", "text": "Is there a limit on how many nights or days per year an owner may camp there?" },
+    "rv": { "when": "rv_camping is unknown", "text": "Are the rules different for a camping trailer or RV parked on the parcel?" },
+    "acres": { "when": "min_acres is null", "text": "Is there a minimum parcel size, or a particular zoning district, where this is allowed?" },
+    "shed": { "when": "pre_dwelling_shed is unknown", "text": "Can a small accessory building, such as a storage shed or open pavilion, be built on a parcel that has no house? Does it need a permit?" },
+    "yurt": { "when": "yurt is unknown", "text": "Would a yurt or platform tent be treated as camping, as a temporary structure, or as a dwelling?" },
+    "sanitation": { "when": "sanitation_summary is null", "text": "What sanitation is required for overnight camping, for example is a portable toilet acceptable? If this is handled by the county health department, that is helpful to know too." },
+    "citation": { "when": "always (last)", "text": "Could you point me to the ordinance section(s) that apply, or send a link or copy?" }
+  },
+  "priority": ["tent", "days", "shed", "sanitation", "yurt", "rv", "acres"],
+  "by_next_action": {
+    "Confirm current status and separate camping rules": {
+      "questions": [
+        "Does the township currently administer its own zoning ordinance, or is the township covered by county zoning (or not zoned)?",
+        "Apart from zoning, does the township have a separate ordinance that regulates camping on private land?"
+      ]
+    },
+    "Confirm separate ordinances and camping legality": {
+      "questions": ["Apart from zoning, does the township have any separate ordinance that regulates camping on private land?"]
+    },
+    "Separate personal camping from campground": {
+      "questions": ["We would only be camping ourselves, not running a campground. Is an owner camping on their own land treated differently from a campground under the township's rules?"]
+    }
+  },
+  "by_id": {
+    "clare--arthur": {
+      "questions": ["Our notes point to Section 4.17 of the township zoning ordinance. Could you confirm, in writing if possible, how it applies to an owner tent camping on their own vacant parcel?"]
+    },
+    "roscommon--gerrish": {
+      "questions": ["If a camping permit is required, what are the approval standards, and roughly how long does approval take?"]
+    },
+    "roscommon--roscommon": {
+      "questions": ["Is tent camping by the owner allowed on a vacant parcel in the A zoning district, and can the allowed camping period be extended?"]
+    },
+    "newaygo--norwich": {
+      "questions": ["Does Ordinance 2016-2 apply to an owner camping privately on their own land, or only to commercial campgrounds?"]
+    },
+    "ogemaw--county-zoned-parcels": {
+      "skip": true,
+      "reason": "County-level record; contact the specific township or county zoning office once a target township is chosen."
+    }
+  }
+}
