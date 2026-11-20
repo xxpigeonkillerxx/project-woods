@@ -64,3 +64,31 @@ header h1{font-size:27px}
 .sources{margin:6px 0 0;padding-left:18px;font-size:12px}
 .sources li{margin:3px 0}
 .legendnote{color:#7a887f;font-style:italic}
+/* v4: comparison table */
+.tablepane{grid-column:1/-1;padding:14px 16px}
+.tablehead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+.filters input,.filters select,.filters button{border:1px solid #cbd9cd;border-radius:7px;background:#fff;padding:8px;color:#234737;font:inherit;font-size:13px}
+.filters input{flex:1 1 240px;min-width:0}
+.filters button{cursor:pointer}
+.tablewrap{overflow:auto;max-height:70vh;border:1px solid #e3eae3;border-radius:10px}
+#ttable{border-collapse:collapse;font-size:12.5px;min-width:1350px;width:100%}
+#ttable th{position:sticky;top:0;background:#eef3ec;text-align:left;padding:8px;border-bottom:1px solid #d5e0d5;cursor:pointer;white-space:nowrap;user-select:none;z-index:1}
+#ttable th:focus-visible{outline:2px solid #2c7954}
+#ttable td{padding:7px 8px;border-bottom:1px solid #edf1ec;vertical-align:top;line-height:1.35}
+#ttable td.c-next_action,#ttable td.c-evidence{min-width:220px}
+#ttable td.c-county,#ttable td.c-township{white-space:nowrap}
+#ttable tbody tr[data-id]{cursor:pointer}
+#ttable tbody tr[data-id]:hover{background:#f5f8f3}
+#ttable tbody tr.sel{background:#e3efe2;box-shadow:inset 3px 0 #2c7954}
+#ttable a{color:#146247;text-decoration:none}
+.swatch{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.act-allowed{color:#1f6b46;font-weight:700}.act-conditional{color:#8a6416;font-weight:700}.act-prohibited{color:#a84c45;font-weight:700}.act-unknown{color:#8a8f86;font-style:italic}
+.tablenote{margin:8px 0 0}
+.linkbtn{background:none;border:0;padding:6px 0 0;color:#146247;cursor:pointer;font:inherit;font-size:12px;text-decoration:underline}
+@media(max-width:800px){.tablepane{padding:12px}.tablewrap{max-height:none}}
+#ttable th.sticky,#ttable td.c-township{position:sticky;left:0;background:#fff;z-index:1;box-shadow:1px 0 #e3eae3}
+#ttable th[data-key="township"]{position:sticky;left:0;z-index:2}
+#ttable tbody tr:hover td.c-township{background:#f5f8f3}
+#ttable tbody tr.sel td.c-township{background:#e3efe2}
+#ttable td.c-township{width:130px;max-width:150px;white-space:normal}

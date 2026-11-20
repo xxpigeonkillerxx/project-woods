@@ -10,6 +10,7 @@ css/app.css         styles
 js/config.js        status vocabularies, labels, colors, service URLs
 js/data.js          loads data/*.json
 js/app.js           map, panels
+js/table.js         township comparison table
 data/townships.json research records (public, sanitized)
 data/sources.json   evidence sources
 vendor/leaflet/     Leaflet 1.9.4 (BSD-2)

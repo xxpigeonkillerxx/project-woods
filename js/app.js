@@ -2,7 +2,8 @@ import {
   RESEARCH_STATUS, ZONING_STATUS, CAMPING_OUTLOOK, ACTIVITY, SOURCE_TYPE,
   NONE_COLOR, UNMATCHED_TOWN_COLOR, COVERAGE, COUNTY_GEOJSON_URL, TOWNSHIP_SERVICE_URL,
 } from './config.js';
-import { norm, loadResearch, findTownship } from './data.js';
+import { norm, loadResearch, findTownship, townKey } from './data.js';
+import { initTable } from './table.js';
 
 const COUNTY_NAMES = ['Alcona', 'Alger', 'Allegan', 'Alpena', 'Antrim', 'Arenac', 'Baraga', 'Barry', 'Bay', 'Benzie', 'Berrien', 'Branch', 'Calhoun', 'Cass', 'Charlevoix', 'Cheboygan', 'Chippewa', 'Clare', 'Clinton', 'Crawford', 'Delta', 'Dickinson', 'Eaton', 'Emmet', 'Genesee', 'Gladwin', 'Gogebic', 'Grand Traverse', 'Gratiot', 'Hillsdale', 'Houghton', 'Huron', 'Ingham', 'Ionia', 'Iosco', 'Iron', 'Isabella', 'Jackson', 'Kalamazoo', 'Kalkaska', 'Kent', 'Keweenaw', 'Lake', 'Lapeer', 'Leelanau', 'Lenawee', 'Livingston', 'Luce', 'Mackinac', 'Macomb', 'Manistee', 'Marquette', 'Mason', 'Mecosta', 'Menominee', 'Midland', 'Missaukee', 'Monroe', 'Montcalm', 'Montmorency', 'Muskegon', 'Newaygo', 'Oakland', 'Oceana', 'Ogemaw', 'Ontonagon', 'Osceola', 'Oscoda', 'Otsego', 'Ottawa', 'Presque Isle', 'Roscommon', 'Saginaw', 'Sanilac', 'Schoolcraft', 'Shiawassee', 'St. Clair', 'St. Joseph', 'Tuscola', 'Van Buren', 'Washtenaw', 'Wayne', 'Wexford'];
 
@@ -15,6 +16,8 @@ let townshipLayer = null;
 let townStyle = null;
 let selected = null;
 let countyFeatures = [];
+let table = null;
+let pendingTown = null; // township to select once boundaries load (from a table click)
 
 const map = L.map('map', { zoomSnap: 0.25 }).setView([44.65, -85.4], 6.4);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -106,15 +109,18 @@ function recordCard(r, focus = false) {
     <p><b>Drive from Ann Arbor:</b> ${r.drive_minutes != null ? esc(r.drive_minutes + ' min') : '<span class="unk">Not yet calculated</span>'}</p>
     <p><b>Next:</b> ${unknown(r.next_action)}</p>
     ${sourceLinks(r)}
+    ${focus ? `<button class="linkbtn" data-totable="${esc(r.id)}">Show in comparison table ↓</button>` : ''}
   </article>`;
 }
 
-function showCounty(name, layer) {
+function showCounty(name, layer, focusRecord = null) {
   selected = name;
+  pendingTown = focusRecord;
   updateLabels();
   if (layer) map.fitBounds(layer.getBounds(), { padding: [24, 24], maxZoom: 10 });
   const rs = research.byCounty[name] || [];
-  $('details').innerHTML = `<div class="detailhead"><h2>${esc(name)} County</h2><button id="showAll">${rs.length} research records ▾</button></div><p class="muted">Select a township on the map to inspect its research. Unzoned does not mean camping is permitted.</p><div id="selectedTown"><p class="muted">Tap a township boundary or its name.</p></div><div id="townList" hidden></div>`;
+  $('details').innerHTML = `<div class="detailhead"><h2>${esc(name)} County</h2><button id="showAll">${rs.length} research records ▾</button></div><p class="muted">Select a township on the map to inspect its research. Unzoned does not mean camping is permitted.</p><div id="townStatus"></div><div id="selectedTown"><p class="muted">Tap a township boundary or its name.</p></div><div id="townList" hidden></div>`;
+  if (focusRecord) { $('selectedTown').innerHTML = recordCard(focusRecord, true); } else { table?.setSelected(null); }
   $('showAll').onclick = () => {
     const el = $('townList');
     el.hidden = !el.hidden;
@@ -136,6 +142,7 @@ function selectTownship(name) {
   const r = findTownship(research.byCounty, selected, name);
   const el = $('selectedTown');
   if (!el) return;
+  table?.setSelected(r ? r.id : null);
   el.innerHTML = r
     ? recordCard(r, true)
     : `<div class="focusTown"><h3>${esc(name)}</h3><div class="pills">${pill('Not researched')}</div><p>No camping information recorded yet. Do not assume permission.</p></div>`;
@@ -174,10 +181,10 @@ async function loadTownships(name) {
   } catch (e) {
     if (selected !== name) return;
     setLoading('');
-    const st = $('selectedTown');
+    const st = $('townStatus');
     if (st) {
       st.innerHTML = `<p class="muted">Township boundaries could not be loaded from the State of Michigan map service (${esc(e.message)}). Research records remain listed below.</p><button class="retry" id="retryTowns">Try again</button>`;
-      $('retryTowns').onclick = () => loadTownships(name);
+      $('retryTowns').onclick = () => { st.innerHTML = ''; loadTownships(name); };
       $('townList').hidden = false;
     }
     return;
@@ -202,7 +209,28 @@ async function loadTownships(name) {
     },
   }).addTo(map);
   updateLabels();
+  if (pendingTown) {
+    const want = townKey(pendingTown.township);
+    pendingTown = null;
+    townshipLayer.eachLayer((l) => {
+      if (townKey(l.feature.properties.Name || l.feature.properties.NAME) === want) l.setStyle({ color: '#123b2b', weight: 3, fillOpacity: 0.8 });
+    });
+  }
 }
+
+function selectFromTable(r) {
+  let layer;
+  countyLayer?.eachLayer((x) => { if (countyName(x.feature) === r.county) layer = x; });
+  showCounty(r.county, layer, r);
+  $('mapwrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-totable]');
+  if (!b) return;
+  table?.setSelected(b.dataset.totable, { scroll: true });
+  $('tableSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
 
 function loadCounties() {
   setLoading('Loading county boundaries…');
@@ -247,6 +275,7 @@ loadCounties();
 loadResearch()
   .then((r) => {
     research = r;
+    table = initTable({ records: r.records, sourceById: r.sourceById, onSelect: selectFromTable });
     renderLegend();
     countyLayer?.setStyle((f) => ({ fillColor: countyColor(countyName(f)) }));
   })
