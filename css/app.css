@@ -1,0 +1,94 @@
+
+:root{font-family:system-ui,-apple-system,sans-serif;color:#18352b;background:#f6f7f2}
+*{box-sizing:border-box}
+body{margin:0}
+header{background:#173c2e;color:white;padding:18px 22px}
+header small{color:#a8cbb4;letter-spacing:.14em;font-weight:700}
+h1{font-family:Georgia,serif;font-weight:500;font-size:32px;margin:5px 0}
+header p{margin:0;color:#d1e1d6;font-size:14px}
+main{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(300px,1fr);gap:14px;padding:14px;max-width:1500px;margin:auto}
+.pane{background:white;border:1px solid #dce5dd;border-radius:13px;overflow:hidden}
+.toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px}
+.toolbar button,.toolbar select,.toolbar input{border:1px solid #cbd9cd;border-radius:7px;background:#fff;padding:8px;color:#234737}
+.toolbar button{cursor:pointer}
+.toolbar button:hover{background:#e8f2e9}
+#map{height:min(73vh,760px);min-height:480px;background:#eaf0e9}
+.legend{padding:10px 14px;display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:#5d6e64}
+.dot{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:4px}
+.side{padding:17px;max-height:calc(min(73vh,760px) + 95px);overflow:auto}
+h2{font-size:20px;margin:0 0 8px}
+.muted{color:#667b70;font-size:13px;line-height:1.5}
+.town{border-top:1px solid #e3eae3;padding:13px 0}
+.town h3{font-size:15px;margin:0 0 5px}
+.pill{display:inline-block;border-radius:20px;padding:3px 8px;font-size:11px;font-weight:700;background:#e7ece7;color:#42564b}
+.town p{font-size:13px;margin:5px 0;line-height:1.45}
+.town a{font-size:12px;color:#146247}
+.leaflet-tooltip.countylabel{background:transparent;border:0;box-shadow:none;font-size:11px;font-weight:700;color:#1c4937;text-shadow:0 1px white,1px 0 white,-1px 0 white,0 -1px white;white-space:nowrap}
+.leaflet-tooltip.countylabel:before{display:none}
+.leaflet-container{font:inherit}
+@media(max-width:800px){main{grid-template-columns:1fr}
+.side{max-height:none}
+#map{height:56vh;min-height:370px}
+header h1{font-size:27px}
+}
+
+.townlabel,.countylabel{background:transparent!important;border:0!important;box-shadow:none!important;color:#214b35!important;font-size:11px!important;font-weight:700!important;text-shadow:0 1px 2px #fff,1px 0 #fff,-1px 0 #fff!important;white-space:nowrap!important;pointer-events:none!important}
+.townlabel:before,.countylabel:before{display:none!important}
+.countylabel{font-size:9px!important}
+.focusTown{background:#f3f7f0;border:1px solid #dce8dc;border-radius:12px;padding:14px;margin:12px 0}
+.focusTown h3{margin:8px 0;font-size:19px}
+.focusTown p{font-size:14px;line-height:1.5}
+.focusTown a{color:#176344}
+.detailhead{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.detailhead button{background:#eaf2e9;border:1px solid #ccddcf;border-radius:8px;padding:9px;color:#214a35;cursor:pointer}
+#townList[hidden]{display:none}
+@media(max-width:800px){#map{height:65vh;min-height:470px}
+.side{max-height:none}
+.countylabel{font-size:8px!important}
+.townlabel{font-size:10px!important}
+}
+
+#mapwrap{position:relative}
+#loading{position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:1000;background:#173c2e;color:#fff;border-radius:20px;padding:7px 14px;font-size:13px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+#loading[hidden]{display:none}
+.retry{margin-top:8px;background:#eaf2e9;border:1px solid #ccddcf;border-radius:8px;padding:7px 11px;color:#214a35;cursor:pointer}
+#map .leaflet-tooltip.countylabel,#map .leaflet-tooltip.townlabel{display:none!important}
+#map.show-counties .leaflet-tooltip.countylabel{display:block!important}
+#map.show-townships .leaflet-tooltip.townlabel{display:block!important}
+#map .leaflet-tooltip.countylabel{font-size:10px!important}
+#map .leaflet-tooltip.townlabel{font-size:12px!important}
+/* v3.2: separate status pills, unknowns, conflicts, sources */
+.pills{display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 8px}
+.unk{color:#8a8f86;font-style:italic}
+.conflict{background:#fbf1e0;border:1px solid #ead2a6;border-radius:8px;padding:8px 10px;font-size:13px;color:#6b4a12}
+.sources{margin:6px 0 0;padding-left:18px;font-size:12px}
+.sources li{margin:3px 0}
+.legendnote{color:#7a887f;font-style:italic}
+/* v4: comparison table */
+.tablepane{grid-column:1/-1;padding:14px 16px}
+.tablehead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+.filters input,.filters select,.filters button{border:1px solid #cbd9cd;border-radius:7px;background:#fff;padding:8px;color:#234737;font:inherit;font-size:13px}
+.filters input{flex:1 1 240px;min-width:0}
+.filters button{cursor:pointer}
+.tablewrap{overflow:auto;max-height:70vh;border:1px solid #e3eae3;border-radius:10px}
+#ttable{border-collapse:collapse;font-size:12.5px;min-width:1350px;width:100%}
+#ttable th{position:sticky;top:0;background:#eef3ec;text-align:left;padding:8px;border-bottom:1px solid #d5e0d5;cursor:pointer;white-space:nowrap;user-select:none;z-index:1}
+#ttable th:focus-visible{outline:2px solid #2c7954}
+#ttable td{padding:7px 8px;border-bottom:1px solid #edf1ec;vertical-align:top;line-height:1.35}
+#ttable td.c-next_action,#ttable td.c-evidence{min-width:220px}
+#ttable td.c-county,#ttable td.c-township{white-space:nowrap}
+#ttable tbody tr[data-id]{cursor:pointer}
+#ttable tbody tr[data-id]:hover{background:#f5f8f3}
+#ttable tbody tr.sel{background:#e3efe2;box-shadow:inset 3px 0 #2c7954}
+#ttable a{color:#146247;text-decoration:none}
+.swatch{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.act-allowed{color:#1f6b46;font-weight:700}.act-conditional{color:#8a6416;font-weight:700}.act-prohibited{color:#a84c45;font-weight:700}.act-unknown{color:#8a8f86;font-style:italic}
+.tablenote{margin:8px 0 0}
+.linkbtn{background:none;border:0;padding:6px 0 0;color:#146247;cursor:pointer;font:inherit;font-size:12px;text-decoration:underline}
+@media(max-width:800px){.tablepane{padding:12px}.tablewrap{max-height:none}}
+#ttable th.sticky,#ttable td.c-township{position:sticky;left:0;background:#fff;z-index:1;box-shadow:1px 0 #e3eae3}
+#ttable th[data-key="township"]{position:sticky;left:0;z-index:2}
+#ttable tbody tr:hover td.c-township{background:#f5f8f3}
+#ttable tbody tr.sel td.c-township{background:#e3efe2}
+#ttable td.c-township{width:130px;max-width:150px;white-space:normal}
