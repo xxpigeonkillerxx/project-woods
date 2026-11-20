@@ -1,6 +1,6 @@
 // Builds outreach email drafts from township records. No network, no sending.
 //
-//   node scripts/outreach/build-drafts.mjs --contacts <private contacts.csv> --out <private dir> [--ids a,b] [--name Greg] [--city "Ann Arbor, Michigan"]
+//   node scripts/outreach/build-drafts.mjs --contacts <private contacts.csv> --out <private dir> [--ids a,b] [--name Greg]
 //
 // The contacts file and the output stay OUT of this public repo (they hold email addresses).
 // Output: drafts.json (to/subject/body per township, ready for Gmail drafts) and drafts.md (preview).
@@ -12,7 +12,7 @@ const args = Object.fromEntries(process.argv.slice(2).reduce((a, v, i, all) => (
 const repo = new URL('../../', import.meta.url);
 const towns = JSON.parse(readFileSync(new URL('data/townships.json', repo), 'utf8')).records;
 const Q = JSON.parse(readFileSync(new URL('outreach/questions.json', repo), 'utf8'));
-const sender = { sender_name: args.name || 'Greg', sender_city: args.city || 'Ann Arbor, Michigan' };
+const sender = { sender_name: args.name || 'Greg' };
 
 // Minimal CSV reader (quoted fields, commas, doubled quotes).
 function parseCsv(text) {
@@ -41,28 +41,31 @@ const placeOf = (r) => (r.jurisdiction_type === 'county' ? `${r.county} County, 
   : `${r.township} ${r.jurisdiction_type === 'township' ? 'Township' : r.jurisdiction_type === 'city' ? '(city)' : 'Village'}, ${r.county} County`);
 
 const GAP = {
-  tent: (r) => r.tent_camping === 'unknown', days: (r) => r.max_days_per_year == null, rv: (r) => r.rv_camping === 'unknown',
-  acres: (r) => r.min_acres == null, shed: (r) => r.pre_dwelling_shed === 'unknown', yurt: (r) => r.yurt === 'unknown',
-  sanitation: (r) => !r.sanitation_summary,
+  tent: (r) => r.tent_camping === 'unknown' || r.max_days_per_year == null || r.min_acres == null,
+  structures: (r) => r.pre_dwelling_shed === 'unknown' || r.yurt === 'unknown',
+  return: (r) => r.max_days_per_year == null, sanitation: (r) => !r.sanitation_summary, rv: (r) => r.rv_camping === 'unknown',
 };
 
 function questionsFor(r) {
+  const county = Q.by_county?.[r.county] || {};
   const specific = [...(Q.by_id[r.id]?.questions || []), ...(Q.by_next_action[r.next_action]?.questions || [])];
   const room = Math.max(0, Q.max_questions - specific.length - 1);
-  const generic = Q.priority.filter((k) => GAP[k](r)).slice(0, room).map((k) => Q.generic[k].text);
-  return [...specific, ...generic, Q.generic.citation.text];
+  const generic = Q.priority.filter((k) => GAP[k](r) && !(county.skip_generic || []).includes(k)).slice(0, room).map((k) => Q.generic[k].text);
+  return [...specific, ...generic, county.citation || Q.generic.citation.text];
 }
 
 function draft(r) {
   const place = placeOf(r);
+  const place_short = place.replace(/, [^,]+ County(, Michigan)?$/, '');
   const to = contacts[r.id] || [];
-  const greeting = to.length === 1 && to[0].office ? `Hello ${to[0].office},` : 'Hello,';
   const qs = questionsFor(r);
-  const body = [greeting, '', fill(Q.intro, { ...sender, place }), '', Q.ask_line, '',
-    ...qs.map((q, i) => `${i + 1}. ${q}`), '', Q.redirect, '', Q.closing, '', sender.sender_name, sender.sender_city].join('\n');
+  const context = Q.by_county?.[r.county]?.context;
+  const intro = [fill(Q.intro, { ...sender, place }), context].filter(Boolean).join(' ');
+  const body = [Q.greeting, '', `${intro} ${Q.ask_line}`, '',
+    ...qs.map((q, i) => `${i + 1}. ${q}`), '', Q.closing, '', ...Q.signoff.map((l) => fill(l, sender))].join('\n');
   return {
     township_id: r.id, place, to: to.map((c) => c.email), to_offices: to.map((c) => c.office),
-    contact_sources: to.map((c) => c.source_url), subject: fill(Q.subject, { place }), body,
+    contact_sources: to.map((c) => c.source_url), subject: fill(Q.subject, { place, place_short }), body,
     label: 'Project Woods', status: to.length ? 'drafted' : 'contact_needed',
   };
 }
