@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "id": "src-001",
+      "url": "https://www.whitewatertownshipmi.gov/uploads/2/1/9/6/21966412/zoning_ordinance__10.23.2025.pdf",
+      "title": "Whitewater Township Zoning Ordinance",
+      "issuer": "Whitewater Township",
+      "source_type": "ordinance",
+      "document_date": "2025-10-23",
+      "accessed": null,
+      "section": null,
+      "note": null
+    },
+    {
+      "id": "src-002",
+      "url": "https://arthurtownshipmi.com/wp-content/uploads/2025/04/arthurtwpzo_jan2025-1.pdf",
+      "title": "Arthur Township Zoning Ordinance (Jan 2025)",
+      "issuer": "Arthur Township",
+      "source_type": "ordinance",
+      "document_date": null,
+      "accessed": null,
+      "section": null,
+      "note": null
+    },
+    {
+      "id": "src-003",
+      "url": "https://leroytwposceola.org/permits/",
+      "title": "LeRoy Township permits page",
+      "issuer": "LeRoy Township",
+      "source_type": "official_web_page",
+      "document_date": null,
+      "accessed": null,
+      "section": null,
+      "note": null
+    },
+    {
+      "id": "src-004",
+      "url": "https://www.mecostatwp.org/forms/",
+      "title": "Mecosta Township forms page",
+      "issuer": "Mecosta Township",
+      "source_type": "official_web_page",
+      "document_date": null,
+      "accessed": null,
+      "section": null,
+      "note": null
+    },
+    {
+      "id": "src-005",
+      "url": "https://frederictownship.org/township-ordinances/",
+      "title": "Frederic Township ordinances index",
+      "issuer": "Frederic Township",
+      "source_type": "official_web_page",
+      "document_date": null,
+      "accessed": null,
+      "section": null,
+      "note": null
+    },
+    {
+      "id": "src-006",
+      "url": "https://ausabletownshipmi.com/contact/",
+      "title": "AuSable Township contact page",
+      "issuer": "AuSable Township",
+      "source_type": "official_contact_page",
+      "document_date": null,
+      "accessed": null,
+      "section": null,
+      "note": null
+    },
+    {
+      "id": "src-007",
+      "url": "https://roscommontownshipmi.gov/wp-content/uploads/2025/09/Zoning-Ordinance-86-Rev-July-2025.pdf",
+      "title": "Roscommon Township Zoning Ordinance 86 (rev. July 2025)",
+      "issuer": "Roscommon Township",
+      "source_type": "ordinance",
+      "document_date": null,
+      "accessed": null,
+      "section": null,
+      "note": null
+    },
+    {
+      "id": "src-008",
+      "url": "https://gerrishtownship.org/wp-content/uploads/2024/09/08-18-2021_11-27-43_Camping-Ordinance-XXXV-Amended-8.10.21.pdf",
+      "title": "Gerrish Township Camping Ordinance XXXV (amended 8/10/2021)",
+      "issuer": "Gerrish Township",
+      "source_type": "ordinance",
+      "document_date": null,
+      "accessed": null,
+      "section": null,
+      "note": null
+    },
+    {
+      "id": "src-009",
+      "url": "https://www.ocmi.us/wp-content/uploads/Zoning-Ordinance.pdf",
+      "title": "Ogemaw County Zoning Ordinance",
+      "issuer": "Ogemaw County",
+      "source_type": "ordinance",
+      "document_date": null,
+      "accessed": null,
+      "section": null,
+      "note": null
+    },
+    {
+      "id": "src-010",
+      "url": "https://cms4files.revize.com/osceolami/document_center/Planning_Commission/Land%20Use%20Master%20Plan%20-%20Osceola%20County%202025%20Nov%20approved.pdf",
+      "title": "Osceola County Land Use Master Plan (2025)",
+      "issuer": "Osceola County",
+      "source_type": "county_planning_document",
+      "document_date": null,
+      "accessed": null,
+      "section": null,
+      "note": null
+    },
+    {
+      "id": "src-011",
+      "url": "https://energyzoning.org/data?order=Zoning+Jurisdiction&page=111&sort=asc",
+      "title": "energyzoning.org zoning database (Missaukee listing)",
+      "issuer": "energyzoning.org",
+      "source_type": "secondary_database",
+      "document_date": null,
+      "accessed": null,
+      "section": null,
+      "note": null
+    },
+    {
+      "id": "src-012",
+      "url": "https://wexfordcounty.org/?page_id=186",
+      "title": "Wexford County building department page",
+      "issuer": "Wexford County",
+      "source_type": "official_web_page",
+      "document_date": null,
+      "accessed": null,
+      "section": null,
+      "note": null
+    },
+    {
+      "id": "src-013",
+      "url": "https://energyzoning.org/data?keywords=&order=County&page=7&sort=desc&state=131&type=",
+      "title": "energyzoning.org zoning database (Oscoda listing)",
+      "issuer": "energyzoning.org",
+      "source_type": "secondary_database",
+      "document_date": null,
+      "accessed": null,
+      "section": null,
+      "note": null
+    },
+    {
+      "id": "src-014",
+      "url": "https://norwichtwp.org/zoning/",
+      "title": "Norwich Township zoning page",
+      "issuer": "Norwich Township",
+      "source_type": "official_web_page",
+      "document_date": null,
+      "accessed": null,
+      "section": null,
+      "note": null
+    }
+  ]
+}
