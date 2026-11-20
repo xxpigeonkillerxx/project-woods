@@ -1,5 +1,5 @@
 // Township comparison table: search, filter, sort, and two-way selection with the map.
-import { RESEARCH_STATUS, ZONING_STATUS, CAMPING_OUTLOOK, ACTIVITY, SOURCE_TYPE } from './config.js';
+import { RESEARCH_STATUS, ZONING_STATUS, CAMPING_OUTLOOK, ACTIVITY, SOURCE_TYPE, OUTREACH_STATUS } from './config.js';
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const UNK = '<span class="unk">—</span>';
@@ -22,7 +22,7 @@ function columns(sourceById) {
     { key: 'yurt', label: 'Yurt', sort: act('yurt'), cell: actCell('yurt') },
     { key: 'pre_dwelling_shed', label: 'Shed before dwelling', sort: act('pre_dwelling_shed'), cell: actCell('pre_dwelling_shed') },
     { key: 'drive_minutes', label: 'Drive (min)', sort: (r) => r.drive_minutes, cell: (r) => (r.drive_minutes == null ? '<span class="unk">Not calculated</span>' : esc(r.drive_minutes)) },
-    { key: 'outreach_status', label: 'Outreach', sort: (r) => r.outreach_status, cell: (r) => (r.outreach_status ? esc(r.outreach_status.replace(/_/g, ' ')) : '<span class="unk">Not recorded</span>') },
+    { key: 'outreach_status', label: 'Outreach', sort: (r) => r.outreach_status, text: (r) => OUTREACH_STATUS[r.outreach_status], cell: (r) => (r.outreach_status ? esc(OUTREACH_STATUS[r.outreach_status] || r.outreach_status) : '<span class="unk">Not recorded</span>') },
     { key: 'evidence', label: 'Evidence', sort: (r) => r.evidence_summary, text: (r) => [r.evidence_summary, ...(r.source_ids || []).map((id) => SOURCE_TYPE[sourceById[id]?.source_type])].join(' '), cell: (r) => { const s = (r.source_ids || []).map((id) => sourceById[id]).filter(Boolean); return `${esc(r.evidence_summary || '')}${s.map((x) => ` <a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer" title="${esc(x.title || '')}">↗</a>`).join('')}` || UNK; } },
     { key: 'last_verified', label: 'Last verified', sort: (r) => r.last_verified, cell: (r) => (r.last_verified ? esc(r.last_verified) : UNK) },
     { key: 'next_action', label: 'Next action', sort: (r) => r.next_action, cell: (r) => esc(r.next_action || '') },
