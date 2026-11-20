@@ -33,6 +33,18 @@ export const ACTIVITY = {
   unknown: 'Unknown',
 };
 
+// Where outreach to the jurisdiction stands. null = not recorded. Lifecycle in docs/OUTREACH.md.
+export const OUTREACH_STATUS = {
+  not_contacted: 'Not contacted',
+  contact_needed: 'Need official contact',
+  drafted: 'Draft ready',
+  sent: 'Sent, awaiting reply',
+  follow_up: 'Follow-up sent',
+  replied: 'Replied',
+  needs_greg: 'Needs Greg',
+  closed: 'Closed',
+};
+
 export const SOURCE_TYPE = {
   ordinance: 'Ordinance',
   official_web_page: 'Official web page',

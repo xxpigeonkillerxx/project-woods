@@ -21,6 +21,9 @@ scripts/build-boundaries.mjs   regenerates data/boundaries (dev only: npm instal
 scripts/link-geoids.mjs        attaches Census GEOIDs to research records
 scripts/compute-drive-times.mjs routes Ann Arbor → every township point
 docs/DATA.md        field definitions and research handoff format
+docs/OUTREACH.md    township email outreach workflow (drafts, reply tracking)
+outreach/           question library for outreach drafts
+scripts/outreach/   draft builder (contacts and drafts stay out of this repo)
 ```
 
 Run locally: `python3 -m http.server` then open http://localhost:8000 (opening the file directly won't load the JSON).

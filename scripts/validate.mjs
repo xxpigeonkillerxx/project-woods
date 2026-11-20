@@ -1,7 +1,7 @@
 // Validates research data files. Run: node scripts/validate.mjs
 // No dependencies. Exits non-zero on errors; warnings are informational.
 import { readFileSync, existsSync } from 'node:fs';
-import { RESEARCH_STATUS, ZONING_STATUS, CAMPING_OUTLOOK, ACTIVITY, SOURCE_TYPE } from '../js/config.js';
+import { RESEARCH_STATUS, ZONING_STATUS, CAMPING_OUTLOOK, ACTIVITY, SOURCE_TYPE, OUTREACH_STATUS } from '../js/config.js';
 
 const errors = [];
 const warnings = [];
@@ -56,6 +56,7 @@ for (const [i, r] of towns.records.entries()) {
     // null = unknown; 0 is a real value and must be deliberate
     if (r[f] != null && (typeof r[f] !== 'number' || r[f] < 0)) errors.push(`${at}: ${f} must be a non-negative number or null`);
   }
+  if (r.outreach_status != null && !(r.outreach_status in OUTREACH_STATUS)) errors.push(`${at}: outreach_status "${r.outreach_status}" not one of ${Object.keys(OUTREACH_STATUS).join(', ')} (or null)`);
   if (r.drive_minutes != null && !r.drive_basis) errors.push(`${at}: drive_minutes needs drive_basis (routing source, date, estimate vs routed)`);
   if (r.last_verified != null && !isDate(r.last_verified)) errors.push(`${at}: last_verified must be YYYY-MM-DD or null`);
   for (const id of r.source_ids || []) { if (!sourceIds.has(id)) errors.push(`${at}: unknown source ${id}`); usedSources.add(id); }

@@ -1,0 +1,100 @@
+{
+  "_note": "Question library for township outreach drafts. Public file: no contact details or correspondence here. Wording matches the emails Greg sent 2026-11-19 (short intro, numbered questions, 'Best, Greg'). build-drafts.mjs picks questions from the gaps in each township record.",
+  "subject": "Question for {place_short} zoning: recreational camping on vacant land",
+  "greeting": "Hello,",
+  "intro": "I'm considering purchasing wooded vacant land in {place} for occasional private family camping and gradual improvements, without building a residence immediately.",
+  "ask_line": "Could you please clarify, or refer me to the appropriate township official:",
+  "closing": "I'm researching jurisdictions rather than requesting approval for a specific parcel yet. Thank you for any guidance.",
+  "signoff": [
+    "Best,",
+    "{sender_name}"
+  ],
+  "max_questions": 5,
+  "generic": {
+    "tent": {
+      "when": "tent_camping unknown, or day limit / minimum acreage unknown",
+      "text": "May an owner camp overnight in a ground tent on vacant private land? Are there permits, minimum lot sizes, or annual day limits?"
+    },
+    "structures": {
+      "when": "pre_dwelling_shed or yurt unknown",
+      "text": "Is a seasonal yurt on a platform allowed, and may a small storage shed or open-air cooking shelter be built before a house?"
+    },
+    "return": {
+      "when": "max_days_per_year is null",
+      "text": "May the owner return regularly over multiple years without building a house?"
+    },
+    "sanitation": {
+      "when": "sanitation_summary is null",
+      "text": "What toilet and wastewater arrangements are acceptable for occasional use?"
+    },
+    "rv": {
+      "when": "rv_camping unknown",
+      "text": "Are the rules different for a camping trailer parked on the parcel?"
+    },
+    "citation": {
+      "when": "always (last)",
+      "text": "Are there separate camping ordinances or deed/zoning restrictions to check, and could you point me to the current written rules?"
+    }
+  },
+  "priority": [
+    "tent",
+    "structures",
+    "return",
+    "sanitation",
+    "rv"
+  ],
+  "by_county": {
+    "Missaukee": {
+      "context": "The Missaukee County Building Department told me the county has no permit or day limit for owner tent camping and suggested I check with the township.",
+      "skip_generic": [
+        "return",
+        "sanitation",
+        "rv"
+      ],
+      "citation": "Could you point me to any current township rules in writing?"
+    }
+  },
+  "by_next_action": {
+    "Confirm current status and separate camping rules": {
+      "questions": [
+        "Does the township have its own zoning ordinance, or any separate ordinance that regulates camping on private land?"
+      ]
+    },
+    "Confirm separate ordinances and camping legality": {
+      "questions": [
+        "Apart from zoning, does the township have a separate ordinance that regulates camping on private land?"
+      ]
+    },
+    "Separate personal camping from campground": {
+      "questions": [
+        "Is an owner camping on their own land treated differently from a campground?"
+      ]
+    }
+  },
+  "by_id": {
+    "clare--arthur": {
+      "questions": [
+        "How does Section 4.17 of the zoning ordinance apply to an owner tent camping on their own vacant parcel?"
+      ]
+    },
+    "roscommon--gerrish": {
+      "questions": [
+        "If a camping permit is required, what are the standards and roughly how long does approval take?"
+      ]
+    },
+    "roscommon--roscommon": {
+      "questions": [
+        "Is owner tent camping allowed on a vacant parcel in the A district, and can the allowed camping period be extended?"
+      ]
+    },
+    "newaygo--norwich": {
+      "questions": [
+        "Does Ordinance 2016-2 apply to an owner camping privately on their own land, or only to campgrounds?"
+      ]
+    },
+    "ogemaw--county-zoned-parcels": {
+      "skip": true,
+      "reason": "County-level record; contact the specific township or county zoning office once a target township is chosen."
+    }
+  }
+}

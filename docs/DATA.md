@@ -24,7 +24,7 @@ Everything here is **public** (GitHub Pages). Sanitized findings only — no pri
 | `evidence_summary` | string \| null | What the finding rests on. |
 | `source_ids` | string[] | IDs from `sources.json`. |
 | `conflict_note` | string \| null | Shown prominently; use when sources disagree. |
-| `outreach_status` | string \| null | e.g. `not_contacted`, `sent`, `replied`, `follow_up`. `null` = not recorded. |
+| `outreach_status` | enum \| null | `not_contacted`, `contact_needed`, `drafted`, `sent`, `follow_up`, `replied`, `needs_greg`, `closed`. `null` = not recorded. See docs/OUTREACH.md. |
 | `last_verified` | `YYYY-MM-DD` \| null | |
 | `drive_minutes` | number \| null | Never estimated by hand. Requires `drive_basis`. Routed times live in `data/travel.json` (below). |
 | `drive_basis` | string \| null | Routing source, date, and whether to township point or a property. |
