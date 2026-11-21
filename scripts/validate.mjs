@@ -107,6 +107,23 @@ if (manifest) {
   }
 }
 
+// Public land stats: keyed by real subdivision GEOIDs, known kinds, sane numbers.
+const pstats = exists('data/public-land-stats.json') ? load('data/public-land-stats.json') : null;
+if (pstats) {
+  const kinds = new Set(Object.keys(pstats.kinds || {}));
+  for (const [g, t] of Object.entries(pstats.towns || {})) {
+    const at = `public-land-stats ${g}`;
+    if (subGeoids.size && !subGeoids.has(g)) errors.push(`${at}: unknown township GEOID`);
+    for (const [k, a] of Object.entries(t.acres || {})) {
+      if (!kinds.has(k)) errors.push(`${at}: unknown kind ${k}`);
+      if (typeof a !== 'number' || a < 0) errors.push(`${at}: bad acres for ${k}`);
+    }
+    if (t.public_share != null && (t.public_share < 0 || t.public_share > 1.02)) errors.push(`${at}: public_share out of range`);
+    if (typeof t.trail_miles !== 'number' || t.trail_miles < 0) errors.push(`${at}: bad trail_miles`);
+  }
+  if (manifest && !manifest.public_land) errors.push('public-land-stats.json exists but manifest has no public_land layer');
+}
+
 // Drive times: every number needs a routing basis; nothing estimated by hand.
 const travel = load('data/travel.json');
 if (travel) {
