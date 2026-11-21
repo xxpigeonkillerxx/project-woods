@@ -36,8 +36,10 @@ Already downloaded a Census zip: add `--zip=path/to/file.zip` to the `counties` 
 
 `node scripts/compute-drive-times.mjs` routes from each origin in `data/travel.json` (Ann Arbor city center to start) to every point in `township-points.json`, using the OSRM table API on OpenStreetMap roads. Options: `--counties=26035,26143` to limit, `--dry-run` to count targets, `OSRM_URL=` to use another OSRM server.
 
-- Needs network access to `router.project-osrm.org` (not in any environment yet) or a self-hosted OSRM.
-- OSRM times are free-flow (no traffic), so they run optimistic; each route records the engine, date and the distance OSRM had to snap the point to a road (`snap_meters`). A large snap means the township point is far from a road and the time needs checking.
+- Needs network access to `router.project-osrm.org` (allowed in the `project-woods` environment) or a self-hosted OSRM. Behind the cloud proxy, run with `NODE_USE_ENV_PROXY=1 NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt`, since Node's fetch ignores `HTTPS_PROXY` otherwise.
+- After routing, the script copies each Ann Arbor time onto the matching research record (`drive_minutes`, `drive_basis`) in `data/townships.json`. `--sync-only` redoes just that step.
+- **Status:** all 1,540 township points routed from Ann Arbor on 2026-11-21.
+- OSRM times are free-flow (no traffic) on OSRM's own speed model, so they can differ from Google or Apple Maps in either direction; spot-check a few before relying on a cutoff; each route records the engine, date and the distance OSRM had to snap the point to a road (`snap_meters`). A large snap means the township point is far from a road and the time needs checking.
 - Times to a township point are a screening number. A specific property gets its own `property` route.
 
 ## Public land overlay: candidate sources (not yet verified)
