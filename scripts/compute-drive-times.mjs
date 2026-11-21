@@ -4,7 +4,8 @@
 // --sync-only skips routing and just re-copies from data/travel.json.
 // Node's fetch ignores HTTPS_PROXY unless NODE_USE_ENV_PROXY=1 is set; behind a proxy, run with that.
 // Engine: OSRM table API (OpenStreetMap road network). Needs network access to the OSRM host below.
-// OSRM times are free-flow (no traffic, no stops) and run optimistic versus Google; the entry says so.
+// OSRM times are free-flow (no traffic) but its car profile drives freeways below posted limits, so they run long
+// versus Google (see docs/BOUNDARIES.md); the record's drive_basis says so.
 // The target is a polygon interior point, which can be miles from the nearest road: OSRM snaps it to the
 // nearest routable road, and the snap distance is recorded so suspicious entries can be checked.
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -77,7 +78,7 @@ for (const rec of data.records) {
   const r = rec.geoid && routeFor.get(rec.geoid);
   if (!r) continue;
   rec.drive_minutes = r.drive_minutes;
-  rec.drive_basis = `Routed to township interior point (not a property), ${r.engine}, ${r.traffic}, retrieved ${r.retrieved}; road snap ${r.snap_meters} m. See data/travel.json.`;
+  rec.drive_basis = `Routed to township interior point (not a property), ${r.engine}, ${r.traffic}, retrieved ${r.retrieved}; road snap ${r.snap_meters} m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.`;
   synced++;
 }
 writeFileSync(new URL('data/townships.json', root), JSON.stringify(data, null, 2) + '\n');

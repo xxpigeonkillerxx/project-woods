@@ -50,7 +50,7 @@ export function initTable({ records, sourceById, onSelect }) {
       <button id="treset" type="button">Reset</button>
     </div>
     <div class="tablewrap"><table id="ttable"><thead><tr>${cols.map((c) => `<th data-key="${c.key}" tabindex="0" aria-sort="none">${esc(c.label)}<span class="sortmark"></span></th>`).join('')}</tr></thead><tbody></tbody></table></div>
-    <p class="muted tablenote">Drive times are blank until routed values are added; nothing is estimated by hand. "Unknown" means not yet researched, not "no restriction".</p>`;
+    <p class="muted tablenote">Drive times are routed from Ann Arbor to each township's center (OSRM, OpenStreetMap roads) and run long compared with Google Maps, because OSRM drives freeways below posted limits. Use them to compare townships, not as trip times. Nothing is estimated by hand. "Unknown" means not yet researched, not "no restriction".</p>`;
 
   const tbody = root.querySelector('tbody');
   const bind = (id, k) => { document.getElementById(id).oninput = (e) => { state[k] = e.target.value; render(); }; };

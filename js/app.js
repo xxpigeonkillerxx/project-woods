@@ -121,7 +121,7 @@ function recordCard(r, focus = false) {
     <p><b>Tent:</b> ${esc(ACTIVITY[r.tent_camping] || 'Unknown')} · <b>RV:</b> ${esc(ACTIVITY[r.rv_camping] || 'Unknown')} · <b>Yurt:</b> ${esc(ACTIVITY[r.yurt] || 'Unknown')} · <b>Pre-dwelling shed:</b> ${esc(ACTIVITY[r.pre_dwelling_shed] || 'Unknown')}</p>
     <p><b>Structures:</b> ${unknown(r.structures_summary)}</p>
     <p><b>Evidence:</b> ${unknown(r.evidence_summary)}</p>
-    <p><b>Drive from Ann Arbor:</b> ${r.drive_minutes != null ? esc(r.drive_minutes + ' min') : '<span class="unk">Not yet calculated</span>'}</p>
+    <p><b>Drive from Ann Arbor:</b> ${r.drive_minutes != null ? `${esc(r.drive_minutes + ' min')} <span class="muted">(to township center; runs long vs Google Maps)</span>` : '<span class="unk">Not yet calculated</span>'}</p>
     <p><b>Next:</b> ${unknown(r.next_action)}</p>
     ${sourceLinks(r)}
     ${focus ? `<button class="linkbtn" data-totable="${esc(r.id)}">Show in comparison table ↓</button>` : ''}

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "note": "Road drive times from an origin to a target point. Every entry comes from a routing engine or a recorded manual lookup; nothing is estimated by hand. Empty until routing is run.",
+  "note": "Road drive times from an origin to a target point. Every entry comes from a routing engine or a recorded manual lookup; nothing is estimated by hand. OSRM routes run long versus Google Maps (its car profile drives freeways below posted limits); use them to rank, not as trip times.",
   "origins": [
     {
       "id": "ann-arbor",
