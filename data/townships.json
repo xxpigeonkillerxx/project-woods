@@ -28,7 +28,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 257,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 389 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 389 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Ask zoning administrator about yurt, shed, sanitation",
       "legacy_status": "Promising",
       "conflict_note": null
@@ -59,7 +59,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 176,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 2 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 2 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Written interpretation of Section 4.17",
       "legacy_status": "Promising",
       "conflict_note": null
@@ -91,7 +91,7 @@
       "outreach_status": null,
       "last_verified": "2026-11-21",
       "drive_minutes": 221,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 4 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 4 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Obtain the camping ordinance: permit maximum, tent rules, and how it fits with zoning §10.1201",
       "legacy_status": "Conditional",
       "conflict_note": "Zoning §10.1201 says tents and RVs \"shall not be used for dwelling purposes\" except as above, while the township separately permits camping beyond 4 days. How the unposted camping ordinance and §10.1201 fit together is unconfirmed."
@@ -122,7 +122,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 198,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 392 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 392 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Obtain permit criteria",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -155,7 +155,7 @@
       "outreach_status": null,
       "last_verified": "2026-11-21",
       "drive_minutes": 218,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 1 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 1 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Ask whether §3.14 covers ground tents (tents are defined as recreational equipment, not recreational units) and whether a yurt counts as an accessory building",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -186,7 +186,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 198,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 219 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 219 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Get written ordinance citation",
       "legacy_status": "Reported incompatible",
       "conflict_note": null
@@ -215,7 +215,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 177,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 5 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 5 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Request camping and sanitation ordinances",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -246,7 +246,7 @@
       "outreach_status": null,
       "last_verified": "2026-11-21",
       "drive_minutes": 165,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 329 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 329 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Request camping and building rules",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -275,7 +275,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 187,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 18 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 18 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Request camping and building rules",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -306,7 +306,7 @@
       "outreach_status": null,
       "last_verified": "2026-11-21",
       "drive_minutes": 160,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 16 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 16 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Request camping and building rules",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -335,7 +335,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 182,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 4 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 4 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Retrieve ordinance",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -364,7 +364,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 179,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 91 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 91 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Review vacant land provisions",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -393,7 +393,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 184,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 65 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 65 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Separate personal camping from campground",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -424,7 +424,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 194,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 205 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 205 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm A-zone vacant tent camping and extensions",
       "legacy_status": "Conditional",
       "conflict_note": null
@@ -453,7 +453,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 212,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 257 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 257 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Check private owner camping",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -484,7 +484,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 193,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 20 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 20 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm permit approval standards and yurt rules",
       "legacy_status": "Promising with conditions",
       "conflict_note": null
@@ -546,7 +546,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 199,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 150 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 150 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Request camping and building ordinances",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -577,7 +577,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 207,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 80 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 80 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Request local rules",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -608,7 +608,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 195,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 42 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 42 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Request local rules",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -639,7 +639,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 216,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 26 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 26 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Request local rules",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -670,7 +670,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 185,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 3 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 3 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Request local rules",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -701,7 +701,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 212,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 2 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 2 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Request local rules",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -732,7 +732,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 185,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 8 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 8 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Request local rules",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -763,7 +763,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 187,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 28 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 28 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Request local rules",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -804,7 +804,7 @@
       "outreach_status": "drafted",
       "last_verified": null,
       "drive_minutes": 216,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 6 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 6 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm no zoning applies and ask about camping rules",
       "legacy_status": "Unverified",
       "conflict_note": "County 2021 permitting guide says only Lake City and McBain have zoning, but the county still posts its 1973 Interim Zoning Ordinance and 1975 amendments with no repeal listed. Whether any county zoning still applies here needs written confirmation."
@@ -845,7 +845,7 @@
       "outreach_status": "not_contacted",
       "last_verified": null,
       "drive_minutes": 211,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 88 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 88 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm no zoning applies and ask about camping rules",
       "legacy_status": "Unverified",
       "conflict_note": "County 2021 permitting guide says only Lake City and McBain have zoning, but the county still posts its 1973 Interim Zoning Ordinance and 1975 amendments with no repeal listed. Whether any county zoning still applies here needs written confirmation."
@@ -886,7 +886,7 @@
       "outreach_status": "not_contacted",
       "last_verified": null,
       "drive_minutes": 220,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 562 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 562 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm no zoning applies and ask about camping rules",
       "legacy_status": "Unverified",
       "conflict_note": "County 2021 permitting guide says only Lake City and McBain have zoning, but the county still posts its 1973 Interim Zoning Ordinance and 1975 amendments with no repeal listed. Whether any county zoning still applies here needs written confirmation."
@@ -928,7 +928,7 @@
       "outreach_status": "not_contacted",
       "last_verified": null,
       "drive_minutes": 222,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 140 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 140 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm no zoning applies and ask about camping rules",
       "legacy_status": "Unverified",
       "conflict_note": "County 2021 permitting guide says only Lake City and McBain have zoning, but the county still posts its 1973 Interim Zoning Ordinance and 1975 amendments with no repeal listed. Whether any county zoning still applies here needs written confirmation."
@@ -969,7 +969,7 @@
       "outreach_status": "not_contacted",
       "last_verified": null,
       "drive_minutes": 226,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 10 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 10 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm no zoning applies and ask about camping rules",
       "legacy_status": "Unverified",
       "conflict_note": "Lake Township's board passed a zoning ordinance (No. 13) in 1997; the county labels it \"failed election 1997\", which suggests it was defeated by referendum, but no election record was found. County 2021 permitting guide says only Lake City and McBain have zoning, but the county still posts its 1973 Interim Zoning Ordinance and 1975 amendments with no repeal listed. Whether any county zoning still applies here needs written confirmation."
@@ -1010,7 +1010,7 @@
       "outreach_status": "not_contacted",
       "last_verified": null,
       "drive_minutes": 220,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 77 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 77 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm no zoning applies and ask about camping rules",
       "legacy_status": "Unverified",
       "conflict_note": "County 2021 permitting guide says only Lake City and McBain have zoning, but the county still posts its 1973 Interim Zoning Ordinance and 1975 amendments with no repeal listed. Whether any county zoning still applies here needs written confirmation."
@@ -1052,7 +1052,7 @@
       "outreach_status": "not_contacted",
       "last_verified": null,
       "drive_minutes": 215,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 38 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 38 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm no zoning applies and ask about camping rules",
       "legacy_status": "Unverified",
       "conflict_note": "County 2021 permitting guide says only Lake City and McBain have zoning, but the county still posts its 1973 Interim Zoning Ordinance and 1975 amendments with no repeal listed. Whether any county zoning still applies here needs written confirmation."
@@ -1092,7 +1092,7 @@
       "outreach_status": "not_contacted",
       "last_verified": null,
       "drive_minutes": 206,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 42 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 42 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm no zoning applies and ask about camping rules",
       "legacy_status": "Unverified",
       "conflict_note": "County 2021 permitting guide says only Lake City and McBain have zoning, but the county still posts its 1973 Interim Zoning Ordinance and 1975 amendments with no repeal listed. Whether any county zoning still applies here needs written confirmation."
@@ -1133,7 +1133,7 @@
       "outreach_status": "not_contacted",
       "last_verified": null,
       "drive_minutes": 224,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 82 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 82 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm no zoning applies and ask about camping rules",
       "legacy_status": "Unverified",
       "conflict_note": "County 2021 permitting guide says only Lake City and McBain have zoning, but the county still posts its 1973 Interim Zoning Ordinance and 1975 amendments with no repeal listed. Whether any county zoning still applies here needs written confirmation."
@@ -1174,7 +1174,7 @@
       "outreach_status": "not_contacted",
       "last_verified": null,
       "drive_minutes": 244,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 77 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 77 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm no zoning applies and ask about camping rules",
       "legacy_status": "Unverified",
       "conflict_note": "County 2021 permitting guide says only Lake City and McBain have zoning, but the county still posts its 1973 Interim Zoning Ordinance and 1975 amendments with no repeal listed. Whether any county zoning still applies here needs written confirmation."
@@ -1215,7 +1215,7 @@
       "outreach_status": "not_contacted",
       "last_verified": null,
       "drive_minutes": 235,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 4 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 4 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm no zoning applies and ask about camping rules",
       "legacy_status": "Unverified",
       "conflict_note": "County 2021 permitting guide says only Lake City and McBain have zoning, but the county still posts its 1973 Interim Zoning Ordinance and 1975 amendments with no repeal listed. Whether any county zoning still applies here needs written confirmation."
@@ -1255,7 +1255,7 @@
       "outreach_status": "not_contacted",
       "last_verified": null,
       "drive_minutes": 210,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 4 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 4 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm no zoning applies and ask about camping rules",
       "legacy_status": "Unverified",
       "conflict_note": "County 2021 permitting guide says only Lake City and McBain have zoning, but the county still posts its 1973 Interim Zoning Ordinance and 1975 amendments with no repeal listed. Whether any county zoning still applies here needs written confirmation."
@@ -1295,7 +1295,7 @@
       "outreach_status": "not_contacted",
       "last_verified": null,
       "drive_minutes": 231,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 864 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 864 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm no zoning applies and ask about camping rules",
       "legacy_status": "Unverified",
       "conflict_note": "County 2021 permitting guide says only Lake City and McBain have zoning, but the county still posts its 1973 Interim Zoning Ordinance and 1975 amendments with no repeal listed. Whether any county zoning still applies here needs written confirmation."
@@ -1337,7 +1337,7 @@
       "outreach_status": "not_contacted",
       "last_verified": null,
       "drive_minutes": 226,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 351 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 351 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm no zoning applies and ask about camping rules",
       "legacy_status": "Unverified",
       "conflict_note": "County 2021 permitting guide says only Lake City and McBain have zoning, but the county still posts its 1973 Interim Zoning Ordinance and 1975 amendments with no repeal listed. Whether any county zoning still applies here needs written confirmation."
@@ -1377,7 +1377,7 @@
       "outreach_status": "not_contacted",
       "last_verified": null,
       "drive_minutes": 230,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 372 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 372 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm no zoning applies and ask about camping rules",
       "legacy_status": "Unverified",
       "conflict_note": "County 2021 permitting guide says only Lake City and McBain have zoning, but the county still posts its 1973 Interim Zoning Ordinance and 1975 amendments with no repeal listed. Whether any county zoning still applies here needs written confirmation."
@@ -1409,7 +1409,7 @@
       "outreach_status": null,
       "last_verified": "2026-11-21",
       "drive_minutes": 245,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 81 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 81 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Ask the township about camping, nuisance or sanitation ordinances; no zoning does not mean camping is allowed",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -1441,7 +1441,7 @@
       "outreach_status": null,
       "last_verified": "2026-11-21",
       "drive_minutes": 250,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 3 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 3 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Ask the township about camping, nuisance or sanitation ordinances; no zoning does not mean camping is allowed",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -1473,7 +1473,7 @@
       "outreach_status": null,
       "last_verified": "2026-11-21",
       "drive_minutes": 233,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 119 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 119 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Ask the township about camping, nuisance or sanitation ordinances; no zoning does not mean camping is allowed",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -1505,7 +1505,7 @@
       "outreach_status": null,
       "last_verified": "2026-11-21",
       "drive_minutes": 243,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 3 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 3 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm with the WJPC that Liberty is under joint zoning, then read the joint zoning ordinance for camping rules",
       "legacy_status": "Unverified",
       "conflict_note": "Official sources disagree: the WJPC (the zoning body) lists Liberty as a served township with a zoning map, while the county building department page lists Liberty as \"No Zoning\". The WJPC listing is probably current, but this is not yet confirmed."
@@ -1536,7 +1536,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 213,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 222 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 222 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm separate ordinances and camping legality",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -1567,7 +1567,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 227,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 10 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 10 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm separate ordinances and camping legality",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -1598,7 +1598,7 @@
       "outreach_status": null,
       "last_verified": null,
       "drive_minutes": 221,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 32 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 32 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm separate ordinances and camping legality",
       "legacy_status": "Unverified",
       "conflict_note": null
@@ -1631,7 +1631,7 @@
       "outreach_status": null,
       "last_verified": "2026-11-21",
       "drive_minutes": 210,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 19 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 19 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm that 2016-2 is the controlling text, whether ground tents are regulated, and which district a candidate parcel is in",
       "legacy_status": "Unverified",
       "conflict_note": "The posted zoning ordinance compilation (incl. 2017 revisions) still prints the older §3.30E (60-day temporary use permits) and §3.30C says residents' RVs \"shall not ... be occupied\"; Ordinance 2016-2 replaced §3.30E in full. Get the zoning administrator to confirm."
@@ -1663,7 +1663,7 @@
       "outreach_status": null,
       "last_verified": "2026-11-21",
       "drive_minutes": 253,
-      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 178 m. See data/travel.json.",
+      "drive_basis": "Routed to township interior point (not a property), OSRM table API (router.project-osrm.org), OpenStreetMap roads, free-flow, no traffic, retrieved 2026-11-21; road snap 178 m. Runs long vs map apps: OSRM's car profile drives freeways below posted limits. See data/travel.json.",
       "next_action": "Confirm that §3.24 covers ground tents and what \"proper septic system available\" means for a vacant tent site",
       "legacy_status": "Added 2026-11-21 from verified sweep",
       "conflict_note": "Lake Township in Lake County (Baldwin area). Do not confuse with the Lake townships in Missaukee, Benzie, Roscommon or other counties. A separate draft zoning ordinance (6-10-2026) is also posted."
