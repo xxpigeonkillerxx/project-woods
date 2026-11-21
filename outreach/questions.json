@@ -75,6 +75,22 @@
         "The county's 2021 permitting guide says only Lake City and McBain have zoning. Is it correct that the township has no zoning ordinance, and that no county zoning ordinance applies here?",
         "Does the township have any other ordinance that regulates camping, tents, or camping trailers on private land?"
       ]
+    },
+    "Request the current zoning ordinance": {
+      "questions": [
+        "Could you send me the township's current zoning ordinance, or a link to it? I could not find a current copy online.",
+        "Does the zoning ordinance, or any other township ordinance, regulate an owner camping on their own vacant land?"
+      ]
+    },
+    "Confirm whether tents fall under the RV camping rules": {
+      "questions": [
+        "The zoning ordinance's recreational vehicle section does not mention ground tents. Do those rules (or any others) cover an owner tent camping on vacant land?"
+      ]
+    },
+    "Ask Gladwin County zoning about short-term camping": {
+      "questions": [
+        "Section 4.2.f of the Gladwin County Zoning Ordinance lets an owner use an RV as a dwelling up to six months a year if it is hooked to an approved well and septic. Does that apply to occasional weekend camping in a tent or RV on vacant land with no well or septic?"
+      ]
     }
   },
   "by_id": {

@@ -15,13 +15,13 @@
     {
       "id": "src-002",
       "url": "https://arthurtownshipmi.com/wp-content/uploads/2025/04/arthurtwpzo_jan2025-1.pdf",
-      "title": "Arthur Township Zoning Ordinance (Jan 2025)",
+      "title": "Arthur Township Zoning Ordinance (as amended through January 2025), §4.17 and §5.5.2",
       "issuer": "Arthur Township",
       "source_type": "ordinance",
-      "document_date": null,
-      "accessed": null,
-      "section": null,
-      "note": null
+      "document_date": "2025-01-01",
+      "accessed": "2026-11-21",
+      "section": "§4.17, §5.5.2.A, Definitions",
+      "note": "§4.17: \"Trailers, campers, and other recreational vehicles may be placed and occupied as temporary living quarters on a vacant lot\"; \"temporary living quarters\" is \"ninety (90) days or less\"; one unit on a lot of ten acres or less, one more per additional ten acres, four at most; units must follow District Health Department rules. The RV definition does not mention tents. §5.5.2.A conditional use: \"Garage or other Storage Building (A garage or other storage structure may be constructed on a lot or parcel without another principal structure if the setbacks in Section 5.6 are followed.)\" Definitions: \"Recreational Cabins - Temporary living quarter (ninety days in a calendar year or less).\""
     },
     {
       "id": "src-003",
@@ -616,6 +616,259 @@
       "section": "§3.02.B; §3.28.C.3",
       "note": "§3.02.B.1.c (Agricultural Districts AG-1, AG-2, AG-3): \"Accessory buildings and structures may be constructed on a lot without a principal building.\" §3.02.B.2.d (R-1, R-2, L-R): not without a principal building, except one accessory building up to 864 sq ft on a non-waterfront L-R lot. §3.28.C.3 (with a temporary permit): \"An individual recreational vehicle or manufactured home may be approved in agricultural and L-R Districts as a temporary dwelling for a period up to 90 consecutive days per calendar year for recreational purposes only.\" Tents are defined but no private tent-camping rule was found. Cover: \"THIS DOCUMENT CONTAINS ALL AMENDMENTS TO ORDINANCE THROUGH 2026\".",
       "accessed": "2026-11-21"
+    },
+    {
+      "id": "src-057",
+      "url": "https://www.ocmi.us/wp-content/uploads/Zoning-General-Info.pdf",
+      "title": "Ogemaw County Planning and Zoning: General Information",
+      "issuer": "Ogemaw County",
+      "source_type": "official_web_page",
+      "document_date": null,
+      "accessed": "2026-11-21",
+      "section": null,
+      "note": "\"The Ogemaw County Zoning Ordinance is administered throughout the County, except within the borders of the City of West Branch (989-345-0500), West Branch Township (989-889-6291), and Edwards Township (989-305-2057).\""
+    },
+    {
+      "id": "src-058",
+      "url": "https://energyzoning.org/sites/default/files/PDF/2612925020_EdwardsTownship_Ogemaw_20231107.pdf",
+      "title": "Edwards Township Zoning Ordinance (adopted 1994, amendments through 2009; archive copy)",
+      "issuer": "Edwards Township (copy hosted by energyzoning.org)",
+      "source_type": "secondary_database",
+      "document_date": "1994-11-14",
+      "accessed": "2026-11-21",
+      "section": "§2.10, §2.11.B, §2.12.A.5",
+      "note": "Third-party archive copy (OCR scan retrieved 2023-11-07); no township website found. §2.12.A.5: \"No accessory building shall be erected or placed on a lot unless a main building has been erected, placed, or established on the same lot.\" §2.11.B: \"No accessory use shall be established on any lot unless a principle use has been established on the same lot.\" §2.10 allows a temporary manufactured home only while building a permanent residence. No section on camping, tents or RV occupancy was found. May have been amended since 2009."
+    },
+    {
+      "id": "src-059",
+      "url": "https://energyzoning.org/sites/default/files/PDF/2612985600_West%20Branch%20Township_Ogemaw_20220602_0.pdf",
+      "title": "West Branch Township Zoning Ordinance (effective 2005-12-16, revised 2017-01-17; archive copy)",
+      "issuer": "West Branch Township (copy hosted by energyzoning.org)",
+      "source_type": "secondary_database",
+      "document_date": "2017-01-17",
+      "accessed": "2026-11-21",
+      "section": "Ch. 2 \"Camping\"; §4.18.B; §5.5.1; §5.6.5; §4.13",
+      "note": "Definition: \"Camping is the temporary placement on a property of five or less tents, travel trailers, or recreational vehicles. More than five units shall constitute a Lodge.\" §5.5.1 lists \"Camping\" among Permitted Principal Uses in the Agricultural (AG) District. §4.18.B.1.b: an RV \"may be used as a temporary or seasonal residence within the AG, FR, CE Districts\" but \"shall not be occupied for a period in excess of thirty (30) days, unless permanent, on-site sanitary facilities, approved by the Ogemaw County Health Department are installed\", then April 1 to November 30. §5.6.5 (FR): \"A pole building or other storage building may be constructed without a principal structure provided setbacks are followed\". The township URL printed on the cover (westbranchtownship.org) no longer belongs to the township."
+    },
+    {
+      "id": "src-060",
+      "url": "https://gladwincounty-mi.gov/wp-content/uploads/2021/03/Zoning-Ordinance-rev-June302019c.pdf",
+      "title": "Gladwin County Zoning Ordinance (effective 2008-02-01, revisions to 2018-11-09)",
+      "issuer": "Gladwin County Planning Commission",
+      "source_type": "ordinance",
+      "document_date": "2018-11-09",
+      "accessed": "2026-11-21",
+      "section": "Definitions (Accessory Building, Temporary Dwelling, Recreational Equipment); §4.2.f; Table 2 (R-F uses)",
+      "note": "§4.2.f: \"Recreational vehicles may be used as dwellings if they are placed on property owned by the resident of the RV and if they are not kept on the property more than six (6) months each calendar year. ... During the period when the RV is placed on the owner's property, it must be hooked to (an approved) well and septic or sewer system located on the same property\". Definition: \"TEMPORARY DWELLING: Includes, but is not limited to travel trailer, pop-up campers, modified trailers and tents\". Accessory building is defined as \"incidental to that of the main building, located on the same lot with the main building\". Table 2 lists \"Temporary Buildings or Trailers\" as a use by right in R-F. No section on short-term tent camping was found. Linked as \"Current Zoning Ordinance\" from the Construction Codes page."
+    },
+    {
+      "id": "src-061",
+      "url": "https://gladwincounty-mi.gov/wp-content/uploads/2026/09/GladwinMasterPlan_Update29July26PCReview.pdf",
+      "title": "Gladwin County Master Plan update (Planning Commission review draft, July 2026)",
+      "issuer": "Gladwin County",
+      "source_type": "county_planning_document",
+      "document_date": "2026-07-29",
+      "accessed": "2026-11-21",
+      "section": "Chapter One, Zoning",
+      "note": "\"Gladwin County provides county-wide zoning services, except for Billings, Clement, Sage, Secord and Tobacco Townships, which independently administer their own zoning codes. The county-wide zoning ordinance became effective February 1, 2008.\" Draft document."
+    },
+    {
+      "id": "src-062",
+      "url": "https://secordtwp.com/assets/docs/Secord_Township_Ordinances_SEARCHABLE.pdf",
+      "title": "Secord Township Ordinances & Zoning Regulations (searchable compilation)",
+      "issuer": "Secord Township",
+      "source_type": "ordinance",
+      "document_date": "2023-07-19",
+      "accessed": "2026-11-21",
+      "section": "§3.6.D, §3.16.A, Definitions (Recreational Vehicle, Dwelling Unit)",
+      "note": "Cover: \"UNOFFICIAL WEBSITE REFERENCE EDITION ... not a certified or signed copy.\" Zoning ordinance revised 11-15-17 (effective 11-30-17), with 2023 amendments. §3.16.A.1: \"Overnight camping on private property shall be permitted in Districts R-1, R-2 and A-1 providing that the recreational vehicle or travel trailer shall carry a current state license plate\". A.3: maximum two units. A.4: \"Overnight camping on private property for 90 consecutive days during the months of May through November shall be allowed in districts R-1, R-2, and A-1 providing that the parcel owner receives a permit from the Zoning Administrator.\" A.4.c: \"The travel trailer or recreational vehicle shall be connected to water and sewer services.\" Definition: Recreational Vehicle \"includes but is not limited to motor homes, travel trailers, pop-up campers, modified trailers and tents.\""
+    },
+    {
+      "id": "src-063",
+      "url": "https://tobaccotownship.org/wp-content/uploads/2025/03/Chap-11-Gen-Req-as-amended-in-2010.htm",
+      "title": "Tobacco Township Zoning Ordinance, Chapter 11 General Requirements (as amended 2010)",
+      "issuer": "Tobacco Township",
+      "source_type": "ordinance",
+      "document_date": "2010-01-01",
+      "accessed": "2026-11-21",
+      "section": "§1103(11), §1103(12)",
+      "note": "§1103(11): \"Recreational vehicles will not be used as a permanent dwelling. An RV occupied for a period of 3 months or more is defined as a permanent dwelling.\" §1103(12): \"No portion of an accessory building in any Zoning District is to be used as a dwelling.\" Tents are not addressed. Document date is the amendment year only."
+    },
+    {
+      "id": "src-064",
+      "url": "https://energyzoning.org/sites/default/files/PDF/2605108360_BillingsTownship_Gladwin_20230718.pdf",
+      "title": "Billings Township Zoning Ordinance (effective 2005-01-01, amended 2014-04-14; archive copy)",
+      "issuer": "Billings Township (copy hosted by energyzoning.org)",
+      "source_type": "secondary_database",
+      "document_date": "2014-04-14",
+      "accessed": "2026-11-21",
+      "section": "§11.04, §6.101.A.1, §6.207",
+      "note": "Township website did not load; third-party archive copy. §11.04.A: in the A-1 District \"Recreational vehicles may be parked, stored, or occupied as temporary living quarters on any lot\", limited to the owner and guests; waste tanks emptied at a dump station; \"All recreational vehicles, tents and similar camping gear and equipment shall be removed from the lot or stored within a completely enclosed accessory structure when not in use.\" §11.04.B (R-1 vacant lots): \"Parking or occupancy of up to four (4) recreational vehicles or any camping on a vacant lot not exceeding a maximum of 72 hours per calendar year shall be allowed without zoning permit approval\"; seasonal use April 15 to December 31 by zoning permit per RV; off-season 14-day permits; one storage accessory structure may stay. §6.101.A.1: \"An accessory structure may be constructed or established on a parcel before or at the same time a principal building or use is being constructed\". §6.207: \"Outhouses, privies, and pit toilets shall be prohibited in any residential zoning district\"."
+    },
+    {
+      "id": "src-065",
+      "url": "https://gladwincounty-mi.gov/cities-townships/",
+      "title": "Gladwin County Cities & Townships; Township and City Officials List (2026-09-28)",
+      "issuer": "Gladwin County",
+      "source_type": "official_contact_page",
+      "document_date": "2026-09-28",
+      "accessed": "2026-11-21",
+      "section": null,
+      "note": "Lists all 15 townships with hall addresses, meeting times and websites; the linked officials list gives clerks. Contacts saved privately, not here."
+    },
+    {
+      "id": "src-066",
+      "url": "https://arenaccountymi.gov/Docs/Planning/ARENAC%20COUNTY%20MASTER%20PLAN_FINAL1_compressed.pdf",
+      "title": "Arenac County Master Plan (2021)",
+      "issuer": "Arenac County",
+      "source_type": "county_planning_document",
+      "document_date": "2021-01-01",
+      "accessed": "2026-11-21",
+      "section": "Introduction; Future Land Use",
+      "note": "\"each municipality in Arenac County has adopted their own zoning regulations\"; \"Arenac County does not administer zoning\"."
+    },
+    {
+      "id": "src-067",
+      "url": "https://arenaccountymi.gov/Docs/building/JURISDICTION%20LIST.pdf",
+      "title": "Arenac County Building Department jurisdiction list and inspectors/zoning officials list",
+      "issuer": "Arenac County Building Department",
+      "source_type": "official_web_page",
+      "document_date": "2026-09-10",
+      "accessed": "2026-11-21",
+      "section": null,
+      "note": "County issues building permits for Clayton, Mason, Moffatt, Sims, Standish, Turner and Whitney townships; \"We do NOT issue for the City of Standish, or the following Townships: Adams, Deep River, Arenac, AuGres and Lincoln.\" Steps to build any structure start with \"Local zoning\". Well and septic permits: Central Michigan District Health Department."
+    },
+    {
+      "id": "src-068",
+      "url": "https://moffatttownship.gov/wp-content/uploads/2024/11/Moffatt-Township-Zoning-Ordinance-10.242024.pdf",
+      "title": "Moffatt Township Zoning Ordinance (2024-10-24)",
+      "issuer": "Moffatt Township",
+      "source_type": "ordinance",
+      "document_date": "2024-10-24",
+      "accessed": "2026-11-21",
+      "section": "§4.18, §5.5.5, §5.6.5",
+      "note": "§4.18: \"Trailers, campers, and other recreational vehicles may be placed and occupied as temporary living quarters on a vacant lot\" subject to: A. a Zoning Administrator permit within 30 days of placing the unit; B. \"No more than one (1) trailer, camper, or other recreational vehicle may be placed on a vacant lot for temporary dwelling purposed by the property owner\" (guests up to two weeks); C. \"shall be vacated and removed from the property on which it was placed for at least ninety (90) consecutive days during each calendar year\"; E. Health Department rules. The same section also says it \"shall not be construed to permit the temporary placement and occupancy of mobile homes, campers, trailers or other recreational vehicles on vacant lots outside of mobile home parks unless all other provisions of this Ordinance that apply to the use and occupancy of single-family dwellings have been met.\" §5.5.5 (Forested) and §5.6.5 (AG/RR): \"A pole building or other storage building may be constructed without a principal structure provided setbacks are followed\"."
+    },
+    {
+      "id": "src-069",
+      "url": "https://whitneytownship.gov/wp-content/uploads/2025/07/Whitney-Township-Zoning-Ordinance-S1751489-3x7B01A-3-1.pdf",
+      "title": "Whitney Township Zoning Ordinance No. 2004-07 (as amended by No. 2025-02)",
+      "issuer": "Whitney Township",
+      "source_type": "ordinance",
+      "document_date": "2025-01-01",
+      "accessed": "2026-11-21",
+      "section": "§6.09.A, §6.10.A, accessory buildings B.2",
+      "note": "§6.10.A: \"Tents, travel trailers and other similar recreational vehicles shall not be used for dwelling purposes in residentially zoned districts\", except (1) a travel trailer for up to a year while a home is built with a building permit and running water and sewage, and (2) \"A tent or recreational vehicle may be used for temporary sleeping quarters for guests for a period not to exceed thirty days in any one calendar year. A permanent dwelling with proper running water and sewage facilities must be established where such temporary sleeping quarters is located.\" §6.09.A: \"The use of privies and other outside toilet facilities is prohibited.\" Accessory B.2: in R-1 \"no accessory building or use shall be used or engaged in prior to the establishment of the principal dwelling\". Document date: amendment year only."
+    },
+    {
+      "id": "src-070",
+      "url": "https://standishtownship.gov/ordinances-forms-documents/",
+      "title": "Standish Township Zoning Ordinance 2014-11-01 (May 2022 compilation) and Ordinance 25-01",
+      "issuer": "Standish Township",
+      "source_type": "ordinance",
+      "document_date": "2022-05-01",
+      "accessed": "2026-11-21",
+      "section": "§2.24",
+      "note": "§2.24 defines a recreational vehicle as \"a motor home, travel trailer, truck camper, or camping trailer\". \"If a recreational vehicle is placed and occupied as temporary living quarters, for a period of more than seven (7) days on a parcel of land ... a permit for placement ... must be obtained ... within seven (7) days of placing the vehicle on the property. The permit shall be valid for one six (6) month period per year.\" Units must follow Health Department rules. Ordinance 25-01 (2025-10-14) only changes building-department references. The township also has a \"Camping Permits\" page whose text could not be read."
+    },
+    {
+      "id": "src-071",
+      "url": "https://energyzoning.org/sites/default/files/PDF/2601116240_Clayton%20Township_Arenac_20220523.pdf",
+      "title": "Clayton Township Zoning Ordinance (amendments through 2015; archive copy)",
+      "issuer": "Clayton Township (copy hosted by energyzoning.org)",
+      "source_type": "secondary_database",
+      "document_date": "2015-07-05",
+      "accessed": "2026-11-21",
+      "section": "§4.09",
+      "note": "The township posts its ordinance at claytontownship.com as an image-only PDF; this text copy was used. §4.09.C \"Hunting and camping. Trailers, campers, and other recreational vehicles placed on vacant lots shall comply with all applicable setbacks and other regulations. All recreational vehicles placed and occupied under the provisions of this Section shall comply with all Health Department regulations ... shall be legally operable\". §4.09.B: six-month RV permit while building a home. No day limit or tent rule found."
+    },
+    {
+      "id": "src-072",
+      "url": "https://energyzoning.org/sites/default/files/PDF/2601180840_Turner%20Township_Arenac_20231106.pdf",
+      "title": "Turner Township Zoning Ordinance (March 2022; archive copy)",
+      "issuer": "Turner Township (copy hosted by energyzoning.org)",
+      "source_type": "secondary_database",
+      "document_date": "2022-03-01",
+      "accessed": "2026-11-21",
+      "section": "Definitions; §5.5.1.H; §5.5.5",
+      "note": "Definition: \"Camping is the temporary placement on a property of tents, travel trailers, or recreational vehicles.\" §5.5.1 (Agricultural / Rural Residential District, AR) Permitted Principal Uses: \"H. Camping.\" No day limit found. Copy is stamped Aug. 29, 2023."
+    },
+    {
+      "id": "src-073",
+      "url": "https://www.augrestownship.com/download/12509/agtwp-2024-draft-zoning-ordinance.pdf",
+      "title": "Au Gres Township Zoning Ordinance (Dec 11, 2018, \"Revised/Updated May 2024\")",
+      "issuer": "Au Gres Township",
+      "source_type": "ordinance",
+      "document_date": "2024-05-01",
+      "accessed": "2026-11-21",
+      "section": "§4.6.b; §5.5 and §5.6 accessory provisions",
+      "note": "The download link is labelled \"2024 draft\"; the cover says \"Revised/Updated May 2024\". §4.6.b (Lakeshore Residential only): guest RV up to 30 days a year; \"Tent camping is limited to a visit of seven (7) days in any one year in LR\". FR and AR: \"A pole building, or other storage building may be constructed without a principal structure\". Camping in FR and AR is not addressed."
+    },
+    {
+      "id": "src-074",
+      "url": "https://www.lincolnarenac.com/download/7189/lincoln-township-zoning-ordinances.pdf",
+      "title": "Lincoln Township (Arenac) Zoning Ordinance (adopted 2001-12-13)",
+      "issuer": "Lincoln Township, Arenac County",
+      "source_type": "ordinance",
+      "document_date": "2001-12-13",
+      "accessed": "2026-11-21",
+      "section": null,
+      "note": "Read for camping, tents, RV occupancy and accessory buildings. No camping or RV-on-vacant-land section found; only a temporary dwelling during construction."
+    },
+    {
+      "id": "src-075",
+      "url": "https://clareco.net/wp-content/uploads/2026/06/Township-Contact-List.pdf",
+      "title": "Clare County Township Contact Information (2026-01-15)",
+      "issuer": "Clare County",
+      "source_type": "official_contact_page",
+      "document_date": "2026-01-15",
+      "accessed": "2026-11-21",
+      "section": "\"Zoned\" column",
+      "note": "Zoned = Yes: Arthur, Freeman, Frost, Hamilton, Hatton, Hayes, Lincoln, Summerfield, Surrey, Winterfield. Zoned = No: Franklin, Garfield, Grant, Greenwood, Redding, Sheridan. Clare County has no county zoning ordinance listed. Contacts saved privately."
+    },
+    {
+      "id": "src-076",
+      "url": "https://hayestwpclaremi.gov/wp-content/uploads/2026/08/Revised-2019-Hayes-Township-Zoning-Ordinance-amended-April-18-2024.pdf",
+      "title": "Hayes Township Zoning Ordinance (2019, amended 2024-04-18) and Ordinance 25-01",
+      "issuer": "Hayes Township",
+      "source_type": "ordinance",
+      "document_date": "2024-04-18",
+      "accessed": "2026-11-21",
+      "section": "§1421, §1422, §1402, Definitions 27 and 94",
+      "note": "§1421: \"Travel trailers, motor homes and other similar recreational vehicles designed with sleeping accommodations shall not be occupied for transient purposes for more than fourteen (14) days without a permit. A permit may be obtained from the Zoning Administrator for up to ninety (90) days with proof of electrical service and District Health Department approved water and sanitary facilities. ... shall not exceed ninety (90) days in any calendar year\". §1422: \"Outhouses, privies and pit toilets are prohibited in all zoning districts. Port a johns may be used with proof of being professionally maintained/serviced every thirty (30) days.\" The RV definition names tent trailers but not ground tents. Ordinance 25-01 (2025-07-22) allows shipping containers as accessory buildings."
+    },
+    {
+      "id": "src-077",
+      "url": "https://winterfieldtownship.org/Winterfield%20Twp%20Zoning%20Ord%20Adopted%20September%202023.pdf",
+      "title": "Winterfield Township Zoning Ordinance No. 03-03 (amended September 2023)",
+      "issuer": "Winterfield Township",
+      "source_type": "ordinance",
+      "document_date": "2023-09-12",
+      "accessed": "2026-11-21",
+      "section": "§1320",
+      "note": "§1320.1.d allows a trailer or temporary dwelling \"On one's own land\" if: \"not more than one trailer or temporary dwelling on a parcel\"; \"The parcel on which the trailer is located contains no other structure or use\"; it meets district area and setbacks; \"The trailer is not connected to any water supply, electrical supply, septic tank, or other permanent sanitary facility\"; \"The trailer is serviced by an adequate temporary sanitary system such as holding tanks or porta-potties\"; it is licensed; and \"Its use is restricted to temporary recreation on a non-commercial/ no rental basis.\" §1320.3: if electric service is provided the trailer is treated as a permanent dwelling. No day limit stated. Tents are listed among items that \"shall not be used as accessory buildings\"."
+    },
+    {
+      "id": "src-078",
+      "url": "https://lincolntwp.net/wp-content/uploads/2026/03/zoningbody.pdf",
+      "title": "Lincoln Township (Clare) Zoning Ordinance No. 44 (effective 2017-09-01, amended through 2022)",
+      "issuer": "Lincoln Township, Clare County",
+      "source_type": "ordinance",
+      "document_date": "2022-04-01",
+      "accessed": "2026-11-21",
+      "section": "§20.7, §20.8",
+      "note": "§20.8: \"The use of a recreational vehicle as a temporary dwelling on a vacant lot ... is prohibited except as approved by the Zoning Administrator ... An annual zoning permit is required for the occupancy of such a recreational vehicle and temporary storage structures.\" RR, R-1, R-2 or R-2A districts only; max two RVs (second needs 1.5 acres); 100 ft from the front lot line; \"No recreational vehicle shall be parked on a lot for any period of time between November 1 and May 1\" (an older line says December 1); not more than 30 days in any 90 consecutive days (60 with approved septic and utility electric), except in R-2A. Tents are not addressed."
+    },
+    {
+      "id": "src-079",
+      "url": "https://www.greenwoodtownship.org/departments/zoning-and-building-permits/",
+      "title": "Greenwood Township: Zoning and Building Permits",
+      "issuer": "Greenwood Township",
+      "source_type": "official_web_page",
+      "document_date": null,
+      "accessed": "2026-11-21",
+      "section": null,
+      "note": "\"Greenwood Township does not have zoning.\" Building permits are handled by the county; wells and septic by the Central Michigan District Health Department."
     }
   ]
 }
