@@ -83,3 +83,7 @@ export const PUBLIC_KINDS = {
 };
 export const TRAIL_COLOR = '#9a4b1c';
 export const PUBLIC_STATS_URL = 'data/public-land-stats.json';
+
+// "Research this" buttons open a pre-filled issue from .github/ISSUE_TEMPLATE/research-request.yml.
+// A scheduled Claude run picks up open issues with the research-request label (docs/RESEARCH_REQUESTS.md).
+export const REPO_URL = 'https://github.com/xxpigeonkillerxx/project-woods';

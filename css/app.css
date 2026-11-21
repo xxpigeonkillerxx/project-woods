@@ -100,3 +100,7 @@ header h1{font-size:27px}
 .trailkey{display:inline-block;width:18px;height:0;border-top:2.5px dashed;margin-right:4px;vertical-align:middle}
 .publand{background:#eef5ec;border-left:3px solid #2f7a3f;border-radius:6px;padding:7px 9px}
 #ttable td.c-public_land{white-space:nowrap}
+.cardactions{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin-top:8px}
+.researchbtn{display:inline-flex;align-items:center;gap:4px;min-height:36px;padding:6px 12px;border:1px solid #ccddcf;border-radius:8px;background:#eaf2e9;color:#214a35;font-size:13px;font-weight:600;text-decoration:none}
+.researchbtn:hover,.researchbtn:focus-visible{background:#d9eadb;border-color:#9fbea7}
+@media(max-width:800px){.researchbtn{min-height:44px;padding:8px 14px}}

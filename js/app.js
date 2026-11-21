@@ -1,7 +1,7 @@
 import {
   RESEARCH_STATUS, ZONING_STATUS, CAMPING_OUTLOOK, ACTIVITY, SOURCE_TYPE,
   NONE_COLOR, UNMATCHED_TOWN_COLOR, COVERAGE, BOUNDARY_MANIFEST_URL, TOWNSHIP_SERVICE_URL,
-  PUBLIC_KINDS, TRAIL_COLOR,
+  PUBLIC_KINDS, TRAIL_COLOR, REPO_URL,
 } from './config.js';
 import { norm, loadResearch, findRecordForFeature, featureKind } from './data.js';
 import { initTable } from './table.js';
@@ -134,6 +134,17 @@ function publicLandHtml(geoid) {
     : `<p class="publand"><b>Public land inside:</b> none mapped.${trails} <span class="muted">Check the map for public land in neighboring townships.</span></p>`;
 }
 
+// Pre-filled GitHub issue for the scheduled research run. Township omitted = whole county.
+function researchUrl({ county, township = '', label = '', geoid = '', recordId = '' }) {
+  const title = township ? `Research: ${label || `${township} Township`}, ${county} County` : `Research: ${county} County (all townships)`;
+  const q = new URLSearchParams({ template: 'research-request.yml', title, county, township, geoid: geoid || '', record_id: recordId || '' });
+  return `${REPO_URL}/issues/new?${q}`;
+}
+
+function researchButton(opts, label = 'Research this') {
+  return `<a class="researchbtn" href="${esc(researchUrl(opts))}" target="_blank" rel="noopener noreferrer" title="Opens a pre-filled request on GitHub. Press Submit and a scheduled run researches it.">🔎 ${esc(label)}</a>`;
+}
+
 function recordCard(r, focus = false) {
   const days = r.max_days_per_year != null ? `${r.max_days_per_year} days/yr` : null;
   const acres = r.min_acres != null ? `${r.min_acres}+ acres` : null;
@@ -151,7 +162,7 @@ function recordCard(r, focus = false) {
     ${publicLandHtml(r.geoid)}
     <p><b>Next:</b> ${unknown(r.next_action)}</p>
     ${sourceLinks(r)}
-    ${focus ? `<button class="linkbtn" data-totable="${esc(r.id)}">Show in comparison table ↓</button>` : ''}
+    <div class="cardactions">${researchButton({ county: r.county, township: r.jurisdiction_type === 'county' ? '' : r.township, label: name, geoid: r.geoid, recordId: r.id }, r.research_status === 'not_started' ? 'Research this' : 'Research again')}${focus ? `<button class="linkbtn" data-totable="${esc(r.id)}">Show in comparison table ↓</button>` : ''}</div>
   </article>`;
 }
 
@@ -161,7 +172,7 @@ function showCounty(name, layer, focusRecord = null) {
   updateLabels();
   if (layer) map.fitBounds(layer.getBounds(), { padding: [24, 24], maxZoom: 10 });
   const rs = research.byCounty[name] || [];
-  $('details').innerHTML = `<div class="detailhead"><h2>${esc(name)} County</h2><button id="showAll">${rs.length} research records ▾</button></div><p class="muted">Select a township on the map to inspect its research. Unzoned does not mean camping is permitted.</p><div id="townStatus"></div><div id="selectedTown"><p class="muted">Tap a township boundary or its name.</p></div><div id="townList" hidden></div>`;
+  $('details').innerHTML = `<div class="detailhead"><h2>${esc(name)} County</h2><button id="showAll">${rs.length} research records ▾</button></div><div class="cardactions">${researchButton({ county: name, geoid: countyFeatures.find((f) => countyName(f) === name)?.properties.geoid }, 'Research whole county')}</div><p class="muted">Select a township on the map to inspect its research. Unzoned does not mean camping is permitted.</p><div id="townStatus"></div><div id="selectedTown"><p class="muted">Tap a township boundary or its name.</p></div><div id="townList" hidden></div>`;
   if (focusRecord) { $('selectedTown').innerHTML = recordCard(focusRecord, true); } else { table?.setSelected(null); }
   $('showAll').onclick = () => {
     const el = $('townList');
@@ -188,7 +199,7 @@ function selectTownship(props) {
   table?.setSelected(r ? r.id : null);
   el.innerHTML = r
     ? recordCard(r, true)
-    : `<div class="focusTown"><h3>${esc(name)}</h3><div class="pills">${pill('Not researched')}</div><p>No camping information recorded yet. Do not assume permission.</p>${publicLandHtml(props.geoid)}</div>`;
+    : `<div class="focusTown"><h3>${esc(name)}</h3><div class="pills">${pill('Not researched')}</div><p>No camping information recorded yet. Do not assume permission.</p>${publicLandHtml(props.geoid)}${featureKind(props) === 'city' ? '' : `<div class="cardactions">${researchButton({ county: selected, township: props.name, geoid: props.geoid })}</div>`}</div>`;
   if (window.innerWidth <= 800) $('details').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 

@@ -1,0 +1,38 @@
+name: Research request
+description: Ask Claude to research a county or township. Picked up by a scheduled run a few times a day.
+title: "Research: "
+labels: ["research-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Filled in by the atlas's **Research this** button. Just press **Submit**.
+        A scheduled run picks this up, follows `docs/SWEEP_PLAYBOOK.md` (official sources only, quotes and links), opens a PR with the findings, and closes this issue with a summary.
+  - type: input
+    id: county
+    attributes:
+      label: County
+      placeholder: Clare
+    validations:
+      required: true
+  - type: input
+    id: township
+    attributes:
+      label: Township
+      description: Leave blank to research every township in the county.
+      placeholder: Arthur
+  - type: input
+    id: geoid
+    attributes:
+      label: Census GEOID
+      description: Filled in automatically. Leave as is.
+  - type: input
+    id: record_id
+    attributes:
+      label: Atlas record id
+      description: Filled in automatically. Blank if the township has no record yet.
+  - type: textarea
+    id: focus
+    attributes:
+      label: Anything specific to look into? (optional)
+      placeholder: e.g. Can I put a shed up before a house? Is there a day limit on camping?
