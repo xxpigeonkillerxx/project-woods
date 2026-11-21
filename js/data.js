@@ -16,15 +16,17 @@ async function getJSON(url) {
 }
 
 export async function loadResearch() {
-  const [towns, sources] = await Promise.all([
+  const [towns, sources, publicStats] = await Promise.all([
     getJSON('data/townships.json'),
     getJSON('data/sources.json'),
+    // Optional: the map still works without public land numbers.
+    getJSON('data/public-land-stats.json').catch(() => null),
   ]);
   const sourceById = Object.fromEntries(sources.sources.map((s) => [s.id, s]));
   const records = towns.records;
   const byCounty = {};
   for (const r of records) (byCounty[r.county] ??= []).push(r);
-  return { records, byCounty, sourceById, updated: towns.updated };
+  return { records, byCounty, sourceById, updated: towns.updated, publicStats };
 }
 
 // Census county subdivisions are townships, charter townships or cities ("Evart city" vs "Evart township").

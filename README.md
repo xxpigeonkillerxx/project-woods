@@ -14,12 +14,14 @@ js/table.js         township comparison table
 data/townships.json research records (public, sanitized)
 data/sources.json   evidence sources
 data/travel.json    routed drive times (empty until routing is run)
-data/boundaries/    bundled Census county + township boundaries (generated; see docs/BOUNDARIES.md)
+data/boundaries/    bundled Census county + township boundaries, public land + trails (generated; see docs/BOUNDARIES.md)
+data/public-land-stats.json  public land acres and trail miles per township (generated)
 vendor/leaflet/     Leaflet 1.9.4 (BSD-2)
 scripts/validate.mjs data checks (run in CI on every PR; no dependencies)
 scripts/build-boundaries.mjs   regenerates data/boundaries (dev only: npm install first)
 scripts/link-geoids.mjs        attaches Census GEOIDs to research records
 scripts/compute-drive-times.mjs routes Ann Arbor → every township point
+scripts/build-public-land.mjs  downloads DNR / Forest Service public land + DNR hiking trails
 docs/DATA.md        field definitions and research handoff format
 docs/OUTREACH.md    township email outreach workflow (drafts, reply tracking)
 outreach/           question library for outreach drafts

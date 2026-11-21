@@ -72,7 +72,7 @@ header h1{font-size:27px}
 .filters input{flex:1 1 240px;min-width:0}
 .filters button{cursor:pointer}
 .tablewrap{overflow:auto;max-height:70vh;border:1px solid #e3eae3;border-radius:10px}
-#ttable{border-collapse:collapse;font-size:12.5px;min-width:1350px;width:100%}
+#ttable{border-collapse:collapse;font-size:12.5px;min-width:1480px;width:100%}
 #ttable th{position:sticky;top:0;background:#eef3ec;text-align:left;padding:8px;border-bottom:1px solid #d5e0d5;cursor:pointer;white-space:nowrap;user-select:none;z-index:1}
 #ttable th:focus-visible{outline:2px solid #2c7954}
 #ttable td{padding:7px 8px;border-bottom:1px solid #edf1ec;vertical-align:top;line-height:1.35}
@@ -94,3 +94,9 @@ header h1{font-size:27px}
 #ttable td.c-township{width:130px;max-width:150px;white-space:normal}
 .toggle{font-size:13px;color:#234737;display:inline-flex;gap:5px;align-items:center}
 .toggle[hidden]{display:none}
+/* v6: public land + trails */
+.legendrow{flex-basis:100%;display:flex;gap:12px;flex-wrap:wrap;align-items:center;border-top:1px solid #e3eae3;padding-top:8px}
+.legendrow b{color:#234737;font-weight:600}
+.trailkey{display:inline-block;width:18px;height:0;border-top:2.5px dashed;margin-right:4px;vertical-align:middle}
+.publand{background:#eef5ec;border-left:3px solid #2f7a3f;border-radius:6px;padding:7px 9px}
+#ttable td.c-public_land{white-space:nowrap}

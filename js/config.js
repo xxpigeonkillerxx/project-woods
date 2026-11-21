@@ -72,3 +72,14 @@ export const BOUNDARY_MANIFEST_URL = 'data/boundaries/manifest.json';
 // or if a bundled file fails to load.
 export const TOWNSHIP_SERVICE_URL =
   'https://mdotgis.state.mi.us/arcgis/rest/services/Reference/BoundaryPub/FeatureServer/441/query';
+
+// Public land overlay (built by scripts/build-public-land.mjs from DNR and Forest Service data).
+// Greens and olive so it reads as "woods" without clashing with the camping outlook colors.
+export const PUBLIC_KINDS = {
+  national_forest: { label: 'National forest', color: '#0f4d2c', fill: 0.42 },
+  state_forest: { label: 'State forest', color: '#5f9a35', fill: 0.42 },
+  state_park: { label: 'State park / rec. area', color: '#1f7a7a', fill: 0.4 },
+  state_game_area: { label: 'State game / wildlife area', color: '#7d7a2a', fill: 0.4 },
+};
+export const TRAIL_COLOR = '#9a4b1c';
+export const PUBLIC_STATS_URL = 'data/public-land-stats.json';

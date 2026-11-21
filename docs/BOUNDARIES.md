@@ -9,7 +9,8 @@ The site is static: everything the map draws ships in `data/boundaries/`, so it 
 | Counties | `counties.geojson` | Census cartographic boundaries | **Bundled** (Census 2023 500k, built 2026-11-20). |
 | Townships / cities (county subdivisions) | `townships/<county GEOID>.geojson` | Census `cb_2023_26_cousub_500k` | **Bundled** for all 83 counties (1,540 subdivisions, Census 2023, built 2026-11-20). The live State of Michigan (MDOT) service is only a fallback if a file fails to load. |
 | Township points | `township-points.json` | Interior point of each Census subdivision polygon | **Bundled** (1,540 points). Routing targets only. |
-| Public land | `public/<county GEOID>.geojson` (listed in `manifest.public_land.by_county`) | to be chosen, see below | **Hook only.** The map shows a "Public land" toggle once the manifest lists any file. |
+| Public land + hiking trails | `public/<county GEOID>.geojson` (listed in `manifest.public_land.by_county`) | Michigan DNR Managed Lands, U.S. Forest Service Basic Ownership, DNR Hiking Trails (see below) | **Bundled** for all 68 Lower Peninsula counties (built 2026-11-21). Shown when a county is open, with its neighbors. |
+| Public land per township | `../public-land-stats.json` | Computed from the files above | **Bundled** (1,367 townships/cities). Shown in township cards and the comparison table. |
 
 `manifest.json` records the source, vintage, simplification and build date of each layer. The map reads it to decide, county by county, whether to use a bundled township file or the live service. If a bundled file fails to load, it also falls back to the live service.
 
@@ -42,12 +43,22 @@ Already downloaded a Census zip: add `--zip=path/to/file.zip` to the `counties` 
 - **OSRM times run long.** The public OSRM car profile drives freeways below posted limits (Ann Arbor to Clare city: 154 min, 143 mi, about 56–60 mph on US-127/US-10, checked 2026-11-21), and township centers add back-road time. Treat them as a ranking, not trip times. Backlog: re-route with Valhalla (`valhalla1.openstreetmap.de`, already allowed in the `project-woods` environment) and replace these. Times are free-flow (no traffic); each route records the engine, date and the distance OSRM had to snap the point to a road (`snap_meters`). A large snap means the township point is far from a road and the time needs checking.
 - Times to a township point are a screening number. A specific property gets its own `property` route.
 
-## Public land overlay: candidate sources (not yet verified)
+## Public land and hiking trails
 
-To pick one, a thread needs network access to the source and should check its license and whether it marks public access:
+`node scripts/build-public-land.mjs` (same proxy variables as drive times) downloads, per county, from official services, then clips, dissolves and simplifies with mapshaper. Options: `--counties=26035,26085`, `--stats-only`.
 
-- USGS Protected Areas Database of the United States (PAD-US): federal, state and local protected land in one dataset, with a public-access field. Most complete single source.
-- Michigan DNR state-managed land (state forests, game areas, parks): from the DNR's open-data GIS portal.
-- USDA Forest Service national forest boundaries / surface ownership (Huron-Manistee NF covers several priority counties).
+| Kind | Source | What is included |
+|---|---|---|
+| State forest | Michigan DNR Managed Lands (Land Ownership Tracking System), `ProjectUseType = Forests` | DNR Forest Resources Division land. Named by DNR forest management unit (e.g. "Gladwin Management Unit"). |
+| State park / recreation area | same, `State Park`, `Recreational Areas` | |
+| State game / wildlife area | same, `Wildlife Game Areas` | |
+| National forest | USDA Forest Service Basic Ownership, `ownerclassification = USDA FOREST SERVICE` | Land the Forest Service owns. Not the proclamation boundary, which also contains private land. |
+| Hiking trail | Michigan DNR statewide trails, "DNR Hiking Trails" layer | DNR pathways and partner trails such as the North Country Trail. Proposed segments are left out. |
 
-Planned output: per-county files under `data/boundaries/public/`, properties `{ name, manager, access, source }`, added to `manifest.public_land` with source and vintage like the other layers.
+Left out on purpose: boating and water access sites, fish hatcheries, rail-trail corridors, DNR offices, undedicated parcels, county/township parks and land conservancy preserves (not in these sources; PAD-US would add them later).
+
+- **Hosts** (allowed in the `project-woods` environment): `services3.arcgis.com`, `apps.fs.usda.gov`, `gisagodnr.state.mi.us`.
+- **Acres are dissolved.** The DNR layer lists some land more than once (e.g. Clare County: 61,018 acres summed parcel by parcel, 53,374 after dissolving overlaps). The atlas uses the dissolved figure. Spot check 2026-11-21: Lake County DNR land 59,059 acres built vs 59,202 in the DNR attribute table.
+- **Per-township numbers** (`data/public-land-stats.json`) are public acres inside each Census township/city polygon, by kind, the share of the township's area, hiking trail miles inside it, and the largest named areas. Land just across a township line is not counted, which is why the map draws neighbors too.
+- **Not a permission finding.** Camping, hunting and access on state and federal land follow DNR and Forest Service rules (dispersed camping on state forest land, for example, needs a camp registration card). Owning next to public land says nothing about what the township allows on private land.
+- Small Forest Service tracts outside the national forest (a few acres in Genesee, Allegan, etc.) are real ownership records and are kept.

@@ -5,7 +5,8 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '
 const UNK = '<span class="unk">—</span>';
 
 // Each column: key, label, value for sorting/searching, cell renderer.
-function columns(sourceById) {
+function columns(sourceById, publicStats) {
+  const pub = (r) => (r.geoid && publicStats?.towns?.[r.geoid]) || null;
   const act = (k) => (r) => ACTIVITY[r[k]] || 'Unknown';
   const actCell = (k) => (r) => `<span class="act act-${esc(r[k] || 'unknown')}">${esc(ACTIVITY[r[k]] || 'Unknown')}</span>`;
   const num = (k, unit) => ({ sort: (r) => r[k], cell: (r) => (r[k] == null ? UNK : esc(r[k] + unit)) });
@@ -22,6 +23,7 @@ function columns(sourceById) {
     { key: 'yurt', label: 'Yurt', sort: act('yurt'), cell: actCell('yurt') },
     { key: 'pre_dwelling_shed', label: 'Shed before dwelling', sort: act('pre_dwelling_shed'), cell: actCell('pre_dwelling_shed') },
     { key: 'drive_minutes', label: 'Drive (min)', sort: (r) => r.drive_minutes, cell: (r) => (r.drive_minutes == null ? '<span class="unk">Not calculated</span>' : esc(r.drive_minutes)) },
+    { key: 'public_land', label: 'Public land in twp', sort: (r) => pub(r)?.public_acres ?? null, text: (r) => (pub(r)?.areas || []).map((a) => a.name).join(' '), cell: (r) => { const t = pub(r); if (!t) return UNK; const pct = t.public_share != null ? `${Math.round(t.public_share * 100)}%` : ''; return t.public_acres ? `<b>${esc(pct)}</b> <span class="muted">${esc(Math.round(t.public_acres).toLocaleString('en-US'))} ac${t.trail_miles ? ` · ${esc(t.trail_miles)} mi trail` : ''}</span>` : `<span class="muted">None${t.trail_miles ? ` · ${esc(t.trail_miles)} mi trail` : ''}</span>`; } },
     { key: 'outreach_status', label: 'Outreach', sort: (r) => r.outreach_status, text: (r) => OUTREACH_STATUS[r.outreach_status], cell: (r) => (r.outreach_status ? esc(OUTREACH_STATUS[r.outreach_status] || r.outreach_status) : '<span class="unk">Not recorded</span>') },
     { key: 'evidence', label: 'Evidence', sort: (r) => r.evidence_summary, text: (r) => [r.evidence_summary, ...(r.source_ids || []).map((id) => SOURCE_TYPE[sourceById[id]?.source_type])].join(' '), cell: (r) => { const s = (r.source_ids || []).map((id) => sourceById[id]).filter(Boolean); return `${esc(r.evidence_summary || '')}${s.map((x) => ` <a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer" title="${esc(x.title || '')}">↗</a>`).join('')}` || UNK; } },
     { key: 'last_verified', label: 'Last verified', sort: (r) => r.last_verified, cell: (r) => (r.last_verified ? esc(r.last_verified) : UNK) },
@@ -29,8 +31,8 @@ function columns(sourceById) {
   ];
 }
 
-export function initTable({ records, sourceById, onSelect }) {
-  const cols = columns(sourceById);
+export function initTable({ records, sourceById, publicStats, onSelect }) {
+  const cols = columns(sourceById, publicStats);
   const state = { q: '', county: '', outlook: '', zoning: '', research: '', sortKey: 'camping_outlook', dir: 1, selectedId: null };
   const root = document.getElementById('tableSection');
   const counties = [...new Set(records.map((r) => r.county))].sort();
@@ -50,7 +52,7 @@ export function initTable({ records, sourceById, onSelect }) {
       <button id="treset" type="button">Reset</button>
     </div>
     <div class="tablewrap"><table id="ttable"><thead><tr>${cols.map((c) => `<th data-key="${c.key}" tabindex="0" aria-sort="none">${esc(c.label)}<span class="sortmark"></span></th>`).join('')}</tr></thead><tbody></tbody></table></div>
-    <p class="muted tablenote">Drive times are routed from Ann Arbor to each township's center (OSRM, OpenStreetMap roads) and run long compared with Google Maps, because OSRM drives freeways below posted limits. Use them to compare townships, not as trip times. Nothing is estimated by hand. "Unknown" means not yet researched, not "no restriction".</p>`;
+    <p class="muted tablenote">Drive times are routed from Ann Arbor to each township's center (OSRM, OpenStreetMap roads) and run long compared with Google Maps, because OSRM drives freeways below posted limits. Use them to compare townships, not as trip times. "Public land in twp" is state forest, state parks and game areas (Michigan DNR) and national forest (U.S. Forest Service) inside the township boundary, as a share of its area; public land just across the line is not counted, so check the map. Nothing is estimated by hand. "Unknown" means not yet researched, not "no restriction".</p>`;
 
   const tbody = root.querySelector('tbody');
   const bind = (id, k) => { document.getElementById(id).oninput = (e) => { state[k] = e.target.value; render(); }; };

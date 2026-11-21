@@ -351,5 +351,458 @@
         "count": 18
       }
     }
+  },
+  "public_land": {
+    "sources": [
+      {
+        "kind": [
+          "state_forest",
+          "state_park",
+          "state_game_area"
+        ],
+        "name": "Michigan DNR Managed Lands (Land Ownership Tracking System)",
+        "url": "https://services3.arcgis.com/Jdnp1TjADvSDxMAX/arcgis/rest/services/DNRLOTSParcelsOPENDATA/FeatureServer/2",
+        "use_types": {
+          "Forests": "state_forest",
+          "State Park": "state_park",
+          "Recreational Areas": "state_park",
+          "Wildlife Game Areas": "state_game_area"
+        }
+      },
+      {
+        "kind": [
+          "national_forest"
+        ],
+        "name": "USDA Forest Service Basic Ownership (land owned by the Forest Service)",
+        "url": "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_BasicOwnership_01/MapServer/0"
+      },
+      {
+        "kind": [
+          "trail"
+        ],
+        "name": "Michigan DNR statewide trails, DNR Hiking Trails layer",
+        "url": "https://gisagodnr.state.mi.us/arcgis/rest/services/DNR/DNRTrailsOPENDATA/FeatureServer/2"
+      }
+    ],
+    "kinds": {
+      "national_forest": "National forest",
+      "state_forest": "State forest",
+      "state_park": "State park / recreation area",
+      "state_game_area": "State game / wildlife area"
+    },
+    "vintage": "retrieved 2026-11-21",
+    "simplification": "server generalization 0.00003 deg, then Visvalingam interval 12 m; slivers under 2,000 m² dropped",
+    "note": "Display only. Not a survey or ownership record. Rules for camping, hunting and access on public land are set by the DNR / Forest Service and vary.",
+    "built": "2026-11-21",
+    "by_county": {
+      "26001": {
+        "file": "public/26001.geojson",
+        "polygons": 8,
+        "trails": 4,
+        "built": "2026-11-21"
+      },
+      "26005": {
+        "file": "public/26005.geojson",
+        "polygons": 5,
+        "trails": 15,
+        "built": "2026-11-21"
+      },
+      "26007": {
+        "file": "public/26007.geojson",
+        "polygons": 3,
+        "trails": 9,
+        "built": "2026-11-21"
+      },
+      "26009": {
+        "file": "public/26009.geojson",
+        "polygons": 3,
+        "trails": 3,
+        "built": "2026-11-21"
+      },
+      "26011": {
+        "file": "public/26011.geojson",
+        "polygons": 3,
+        "trails": 0,
+        "built": "2026-11-21"
+      },
+      "26015": {
+        "file": "public/26015.geojson",
+        "polygons": 4,
+        "trails": 17,
+        "built": "2026-11-21"
+      },
+      "26017": {
+        "file": "public/26017.geojson",
+        "polygons": 7,
+        "trails": 7,
+        "built": "2026-11-21"
+      },
+      "26019": {
+        "file": "public/26019.geojson",
+        "polygons": 2,
+        "trails": 4,
+        "built": "2026-11-21"
+      },
+      "26021": {
+        "file": "public/26021.geojson",
+        "polygons": 4,
+        "trails": 14,
+        "built": "2026-11-21"
+      },
+      "26023": {
+        "file": "public/26023.geojson",
+        "polygons": 1,
+        "trails": 0,
+        "built": "2026-11-21"
+      },
+      "26025": {
+        "file": "public/26025.geojson",
+        "polygons": 0,
+        "trails": 7,
+        "built": "2026-11-21"
+      },
+      "26027": {
+        "file": "public/26027.geojson",
+        "polygons": 2,
+        "trails": 0,
+        "built": "2026-11-21"
+      },
+      "26029": {
+        "file": "public/26029.geojson",
+        "polygons": 7,
+        "trails": 0,
+        "built": "2026-11-21"
+      },
+      "26031": {
+        "file": "public/26031.geojson",
+        "polygons": 9,
+        "trails": 21,
+        "built": "2026-11-21"
+      },
+      "26035": {
+        "file": "public/26035.geojson",
+        "polygons": 5,
+        "trails": 2,
+        "built": "2026-11-21"
+      },
+      "26037": {
+        "file": "public/26037.geojson",
+        "polygons": 6,
+        "trails": 3,
+        "built": "2026-11-21"
+      },
+      "26039": {
+        "file": "public/26039.geojson",
+        "polygons": 7,
+        "trails": 23,
+        "built": "2026-11-21"
+      },
+      "26045": {
+        "file": "public/26045.geojson",
+        "polygons": 3,
+        "trails": 0,
+        "built": "2026-11-21"
+      },
+      "26047": {
+        "file": "public/26047.geojson",
+        "polygons": 4,
+        "trails": 23,
+        "built": "2026-11-21"
+      },
+      "26049": {
+        "file": "public/26049.geojson",
+        "polygons": 2,
+        "trails": 2,
+        "built": "2026-11-21"
+      },
+      "26051": {
+        "file": "public/26051.geojson",
+        "polygons": 2,
+        "trails": 2,
+        "built": "2026-11-21"
+      },
+      "26055": {
+        "file": "public/26055.geojson",
+        "polygons": 7,
+        "trails": 13,
+        "built": "2026-11-21"
+      },
+      "26057": {
+        "file": "public/26057.geojson",
+        "polygons": 3,
+        "trails": 0,
+        "built": "2026-11-21"
+      },
+      "26059": {
+        "file": "public/26059.geojson",
+        "polygons": 3,
+        "trails": 1,
+        "built": "2026-11-21"
+      },
+      "26063": {
+        "file": "public/26063.geojson",
+        "polygons": 9,
+        "trails": 6,
+        "built": "2026-11-21"
+      },
+      "26065": {
+        "file": "public/26065.geojson",
+        "polygons": 4,
+        "trails": 2,
+        "built": "2026-11-21"
+      },
+      "26067": {
+        "file": "public/26067.geojson",
+        "polygons": 6,
+        "trails": 4,
+        "built": "2026-11-21"
+      },
+      "26069": {
+        "file": "public/26069.geojson",
+        "polygons": 5,
+        "trails": 4,
+        "built": "2026-11-21"
+      },
+      "26073": {
+        "file": "public/26073.geojson",
+        "polygons": 2,
+        "trails": 0,
+        "built": "2026-11-21"
+      },
+      "26075": {
+        "file": "public/26075.geojson",
+        "polygons": 7,
+        "trails": 8,
+        "built": "2026-11-21"
+      },
+      "26077": {
+        "file": "public/26077.geojson",
+        "polygons": 5,
+        "trails": 4,
+        "built": "2026-11-21"
+      },
+      "26079": {
+        "file": "public/26079.geojson",
+        "polygons": 1,
+        "trails": 6,
+        "built": "2026-11-21"
+      },
+      "26081": {
+        "file": "public/26081.geojson",
+        "polygons": 5,
+        "trails": 6,
+        "built": "2026-11-21"
+      },
+      "26085": {
+        "file": "public/26085.geojson",
+        "polygons": 3,
+        "trails": 6,
+        "built": "2026-11-21"
+      },
+      "26087": {
+        "file": "public/26087.geojson",
+        "polygons": 4,
+        "trails": 4,
+        "built": "2026-11-21"
+      },
+      "26089": {
+        "file": "public/26089.geojson",
+        "polygons": 3,
+        "trails": 9,
+        "built": "2026-11-21"
+      },
+      "26091": {
+        "file": "public/26091.geojson",
+        "polygons": 5,
+        "trails": 2,
+        "built": "2026-11-21"
+      },
+      "26093": {
+        "file": "public/26093.geojson",
+        "polygons": 8,
+        "trails": 13,
+        "built": "2026-11-21"
+      },
+      "26099": {
+        "file": "public/26099.geojson",
+        "polygons": 3,
+        "trails": 1,
+        "built": "2026-11-21"
+      },
+      "26101": {
+        "file": "public/26101.geojson",
+        "polygons": 5,
+        "trails": 3,
+        "built": "2026-11-21"
+      },
+      "26105": {
+        "file": "public/26105.geojson",
+        "polygons": 4,
+        "trails": 19,
+        "built": "2026-11-21"
+      },
+      "26107": {
+        "file": "public/26107.geojson",
+        "polygons": 4,
+        "trails": 1,
+        "built": "2026-11-21"
+      },
+      "26111": {
+        "file": "public/26111.geojson",
+        "polygons": 2,
+        "trails": 2,
+        "built": "2026-11-21"
+      },
+      "26113": {
+        "file": "public/26113.geojson",
+        "polygons": 4,
+        "trails": 2,
+        "built": "2026-11-21"
+      },
+      "26115": {
+        "file": "public/26115.geojson",
+        "polygons": 5,
+        "trails": 2,
+        "built": "2026-11-21"
+      },
+      "26117": {
+        "file": "public/26117.geojson",
+        "polygons": 8,
+        "trails": 3,
+        "built": "2026-11-21"
+      },
+      "26119": {
+        "file": "public/26119.geojson",
+        "polygons": 3,
+        "trails": 6,
+        "built": "2026-11-21"
+      },
+      "26121": {
+        "file": "public/26121.geojson",
+        "polygons": 6,
+        "trails": 23,
+        "built": "2026-11-21"
+      },
+      "26123": {
+        "file": "public/26123.geojson",
+        "polygons": 5,
+        "trails": 1,
+        "built": "2026-11-21"
+      },
+      "26125": {
+        "file": "public/26125.geojson",
+        "polygons": 15,
+        "trails": 48,
+        "built": "2026-11-21"
+      },
+      "26127": {
+        "file": "public/26127.geojson",
+        "polygons": 5,
+        "trails": 7,
+        "built": "2026-11-21"
+      },
+      "26129": {
+        "file": "public/26129.geojson",
+        "polygons": 3,
+        "trails": 7,
+        "built": "2026-11-21"
+      },
+      "26133": {
+        "file": "public/26133.geojson",
+        "polygons": 5,
+        "trails": 3,
+        "built": "2026-11-21"
+      },
+      "26135": {
+        "file": "public/26135.geojson",
+        "polygons": 2,
+        "trails": 2,
+        "built": "2026-11-21"
+      },
+      "26137": {
+        "file": "public/26137.geojson",
+        "polygons": 5,
+        "trails": 10,
+        "built": "2026-11-21"
+      },
+      "26139": {
+        "file": "public/26139.geojson",
+        "polygons": 8,
+        "trails": 11,
+        "built": "2026-11-21"
+      },
+      "26141": {
+        "file": "public/26141.geojson",
+        "polygons": 7,
+        "trails": 18,
+        "built": "2026-11-21"
+      },
+      "26143": {
+        "file": "public/26143.geojson",
+        "polygons": 7,
+        "trails": 11,
+        "built": "2026-11-21"
+      },
+      "26145": {
+        "file": "public/26145.geojson",
+        "polygons": 4,
+        "trails": 1,
+        "built": "2026-11-21"
+      },
+      "26147": {
+        "file": "public/26147.geojson",
+        "polygons": 7,
+        "trails": 7,
+        "built": "2026-11-21"
+      },
+      "26149": {
+        "file": "public/26149.geojson",
+        "polygons": 3,
+        "trails": 0,
+        "built": "2026-11-21"
+      },
+      "26151": {
+        "file": "public/26151.geojson",
+        "polygons": 5,
+        "trails": 1,
+        "built": "2026-11-21"
+      },
+      "26155": {
+        "file": "public/26155.geojson",
+        "polygons": 1,
+        "trails": 1,
+        "built": "2026-11-21"
+      },
+      "26157": {
+        "file": "public/26157.geojson",
+        "polygons": 12,
+        "trails": 1,
+        "built": "2026-11-21"
+      },
+      "26159": {
+        "file": "public/26159.geojson",
+        "polygons": 7,
+        "trails": 5,
+        "built": "2026-11-21"
+      },
+      "26161": {
+        "file": "public/26161.geojson",
+        "polygons": 7,
+        "trails": 22,
+        "built": "2026-11-21"
+      },
+      "26163": {
+        "file": "public/26163.geojson",
+        "polygons": 4,
+        "trails": 7,
+        "built": "2026-11-21"
+      },
+      "26165": {
+        "file": "public/26165.geojson",
+        "polygons": 5,
+        "trails": 6,
+        "built": "2026-11-21"
+      }
+    }
   }
 }

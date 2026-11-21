@@ -1,6 +1,7 @@
 import {
   RESEARCH_STATUS, ZONING_STATUS, CAMPING_OUTLOOK, ACTIVITY, SOURCE_TYPE,
   NONE_COLOR, UNMATCHED_TOWN_COLOR, COVERAGE, BOUNDARY_MANIFEST_URL, TOWNSHIP_SERVICE_URL,
+  PUBLIC_KINDS, TRAIL_COLOR,
 } from './config.js';
 import { norm, loadResearch, findRecordForFeature, featureKind } from './data.js';
 import { initTable } from './table.js';
@@ -10,14 +11,15 @@ const COUNTY_NAMES = ['Alcona', 'Alger', 'Allegan', 'Alpena', 'Antrim', 'Arenac'
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
-let research = { records: [], byCounty: {}, sourceById: {} };
+let research = { records: [], byCounty: {}, sourceById: {}, publicStats: null };
 let countyLayer = null;
 let townshipLayer = null;
 let townStyle = null;
 let selected = null;
 let countyFeatures = [];
 let boundaryManifest = null;
-let publicLayer = null;
+let publicLayer = null; // L.layerGroup of the open county's public land + its neighbors'
+const publicCache = new Map(); // county geoid -> Promise<GeoJSON>
 let table = null;
 let pendingTown = null; // township to select once boundaries load (from a table click)
 
@@ -70,6 +72,12 @@ function renderLegend() {
       .map(([, v]) => sw(v.color, v.label)).join('')
       + '<span class="legendnote">County color = most favorable township record, not countywide permission. Unzoned ≠ camping allowed.</span>';
   }
+  if (boundaryManifest?.public_land) {
+    const line = `<span><i class="trailkey" style="border-color:${TRAIL_COLOR}"></i>Hiking trail</span>`;
+    $('legend').insertAdjacentHTML('beforeend', '<div class="legendrow"><b>Open a county to see:</b>'
+      + Object.values(PUBLIC_KINDS).map((k) => `<span><i class="dot" style="background:${k.color};opacity:.8"></i>${esc(k.label)}</span>`).join('')
+      + line + '<span class="legendnote">DNR and Forest Service land; rules for camping on it are theirs, not the township\'s.</span></div>');
+  }
 }
 
 function setLoading(msg) {
@@ -108,6 +116,24 @@ function sourceLinks(r) {
   return '<ul class="sources">' + items.map((s) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title || SOURCE_TYPE[s.source_type] || 'Source')} ↗</a> <span class="muted">${esc(SOURCE_TYPE[s.source_type] || '')}</span></li>`).join('') + '</ul>';
 }
 
+const fmtAcres = (n) => Math.round(n).toLocaleString('en-US');
+
+// Public land inside a township's Census boundary, from data/public-land-stats.json. Never estimated by hand.
+function publicLandHtml(geoid) {
+  const stats = research.publicStats;
+  if (!stats || !geoid) return '';
+  const t = stats.towns?.[geoid];
+  if (!t) return '<p><b>Public land:</b> <span class="unk">Not mapped for this county yet</span></p>';
+  const kinds = Object.entries(t.acres).sort((a, b) => b[1] - a[1])
+    .map(([k, a]) => `${esc(PUBLIC_KINDS[k]?.label || k)} ${fmtAcres(a)} ac`).join(' · ');
+  const share = t.public_share != null ? ` (${Math.round(t.public_share * 100)}% of the township)` : '';
+  const areas = t.areas.length ? `<br><span class="muted">Largest: ${t.areas.map((a) => esc(a.name)).join('; ')}</span>` : '';
+  const trails = t.trail_miles ? ` <b>Hiking trails:</b> ${esc(t.trail_miles)} mi.` : '';
+  return t.public_acres
+    ? `<p class="publand"><b>Public land inside:</b> ${fmtAcres(t.public_acres)} acres${share}. ${kinds}.${trails}${areas}<br><span class="muted">Counts only land inside this boundary; check the map for public land just across it.</span></p>`
+    : `<p class="publand"><b>Public land inside:</b> none mapped.${trails} <span class="muted">Check the map for public land in neighboring townships.</span></p>`;
+}
+
 function recordCard(r, focus = false) {
   const days = r.max_days_per_year != null ? `${r.max_days_per_year} days/yr` : null;
   const acres = r.min_acres != null ? `${r.min_acres}+ acres` : null;
@@ -122,6 +148,7 @@ function recordCard(r, focus = false) {
     <p><b>Structures:</b> ${unknown(r.structures_summary)}</p>
     <p><b>Evidence:</b> ${unknown(r.evidence_summary)}</p>
     <p><b>Drive from Ann Arbor:</b> ${r.drive_minutes != null ? `${esc(r.drive_minutes + ' min')} <span class="muted">(to township center; runs long vs Google Maps)</span>` : '<span class="unk">Not yet calculated</span>'}</p>
+    ${publicLandHtml(r.geoid)}
     <p><b>Next:</b> ${unknown(r.next_action)}</p>
     ${sourceLinks(r)}
     ${focus ? `<button class="linkbtn" data-totable="${esc(r.id)}">Show in comparison table ↓</button>` : ''}
@@ -161,7 +188,7 @@ function selectTownship(props) {
   table?.setSelected(r ? r.id : null);
   el.innerHTML = r
     ? recordCard(r, true)
-    : `<div class="focusTown"><h3>${esc(name)}</h3><div class="pills">${pill('Not researched')}</div><p>No camping information recorded yet. Do not assume permission.</p></div>`;
+    : `<div class="focusTown"><h3>${esc(name)}</h3><div class="pills">${pill('Not researched')}</div><p>No camping information recorded yet. Do not assume permission.</p>${publicLandHtml(props.geoid)}</div>`;
   if (window.innerWidth <= 800) $('details').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
@@ -208,23 +235,53 @@ async function fetchTownships(feature) {
   }
 }
 
-// Public land overlay (state forest, national forest, etc.). Drawn only for counties with a bundled file,
-// listed in manifest.public_land.by_county; the toggle stays hidden until such data exists.
+// Public land + hiking trail overlay. Draws the open county's bundled file plus its neighbors', so land just
+// across the county line shows too. Files are listed in manifest.public_land.by_county; the toggles stay hidden
+// until such data exists.
+function fetchPublic(geoid) {
+  const entry = boundaryManifest?.public_land?.by_county?.[geoid];
+  if (!entry) return null;
+  if (!publicCache.has(geoid)) {
+    publicCache.set(geoid, fetchJSON(`data/boundaries/${entry.file}`).catch((e) => { publicCache.delete(geoid); throw e; }));
+  }
+  return publicCache.get(geoid);
+}
+
+function publicStyle(f) {
+  if (f.properties.kind === 'trail') return { color: TRAIL_COLOR, weight: 2.2, dashArray: '5 4', opacity: 0.95 };
+  const k = PUBLIC_KINDS[f.properties.kind] || PUBLIC_KINDS.state_forest;
+  return { color: k.color, weight: 0.8, opacity: 0.9, fillColor: k.color, fillOpacity: k.fill };
+}
+
 async function loadPublicLand(feature) {
   if (publicLayer) { map.removeLayer(publicLayer); publicLayer = null; }
-  const entry = boundaryManifest?.public_land?.by_county?.[feature.properties.geoid];
-  if (!entry || !$('publicLand')?.checked) return;
-  try {
-    const geo = await fetchJSON(`data/boundaries/${entry.file}`);
-    if (selected !== countyName(feature)) return;
-    publicLayer = L.geoJSON(geo, {
-      style: { color: '#1d5c3a', weight: 1, dashArray: '3 3', fillColor: '#2e7d4f', fillOpacity: 0.28 },
-      interactive: false,
-      pane: 'publicLand',
-    }).addTo(map);
-  } catch (e) {
+  const showLand = $('publicLand')?.checked;
+  const showTrails = $('trails')?.checked;
+  if (!boundaryManifest?.public_land || (!showLand && !showTrails)) return;
+  const near = L.geoJSON(feature).getBounds().pad(0.08);
+  const geoids = countyFeatures
+    .filter((f) => f === feature || near.intersects(L.geoJSON(f).getBounds()))
+    .map((f) => f.properties.geoid);
+  const group = L.layerGroup().addTo(map);
+  publicLayer = group;
+  const failed = [];
+  await Promise.all(geoids.map(async (g) => {
+    const p = fetchPublic(g);
+    if (!p) return;
+    try {
+      const geo = await p;
+      if (publicLayer !== group) return;
+      const keep = (f) => (f.properties.kind === 'trail' ? showTrails : showLand);
+      // Land under trails: add land first so trail lines draw on top.
+      L.geoJSON(geo, { filter: (f) => keep(f) && f.properties.kind !== 'trail', style: publicStyle, interactive: false, pane: 'publicLand' }).addTo(group);
+      L.geoJSON(geo, { filter: (f) => keep(f) && f.properties.kind === 'trail', style: publicStyle, interactive: false, pane: 'publicLand' }).addTo(group);
+    } catch (e) {
+      if (g === feature.properties.geoid) failed.push(e.message);
+    }
+  }));
+  if (failed.length && publicLayer === group) {
     const st = $('townStatus');
-    if (st) st.insertAdjacentHTML('beforeend', `<p class="muted">Public land layer could not be loaded (${esc(e.message)}).</p>`);
+    if (st) st.insertAdjacentHTML('beforeend', `<p class="muted">Public land layer could not be loaded (${esc(failed[0])}).</p>`);
   }
 }
 
@@ -303,7 +360,11 @@ async function loadCounties() {
     countyFeatures = g.features;
     if (boundaryManifest.public_land) {
       $('publicLandToggle').hidden = false;
-      $('publicLand').onchange = () => { const f = countyFeatures.find((x) => countyName(x) === selected); if (f) loadPublicLand(f); };
+      $('trailsToggle').hidden = false;
+      const reload = () => { const f = countyFeatures.find((x) => countyName(x) === selected); if (f) loadPublicLand(f); };
+      $('publicLand').onchange = reload;
+      $('trails').onchange = reload;
+      renderLegend();
     }
     drawCounties();
     map.fitBounds(countyLayer.getBounds());
@@ -341,7 +402,7 @@ loadCounties();
 loadResearch()
   .then((r) => {
     research = r;
-    table = initTable({ records: r.records, sourceById: r.sourceById, onSelect: selectFromTable });
+    table = initTable({ records: r.records, sourceById: r.sourceById, publicStats: r.publicStats, onSelect: selectFromTable });
     renderLegend();
     countyLayer?.setStyle((f) => ({ fillColor: countyColor(countyName(f)) }));
   })
