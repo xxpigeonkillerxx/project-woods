@@ -1,5 +1,8 @@
 // Fills data/travel.json with routed drive times from an origin to every bundled township point.
-//   node scripts/compute-drive-times.mjs [--origin=ann-arbor] [--counties=26035,26143] [--dry-run]
+//   node scripts/compute-drive-times.mjs [--origin=ann-arbor] [--counties=26035,26143] [--dry-run] [--sync-only]
+// Afterwards copies Ann Arbor times onto research records in data/townships.json (drive_minutes + drive_basis).
+// --sync-only skips routing and just re-copies from data/travel.json.
+// Node's fetch ignores HTTPS_PROXY unless NODE_USE_ENV_PROXY=1 is set; behind a proxy, run with that.
 // Engine: OSRM table API (OpenStreetMap road network). Needs network access to the OSRM host below.
 // OSRM times are free-flow (no traffic, no stops) and run optimistic versus Google; the entry says so.
 // The target is a polygon interior point, which can be miles from the nearest road: OSRM snaps it to the
@@ -27,6 +30,7 @@ console.log(`${points.length} targets from ${origin.label} via ${OSRM}`);
 if (dry) process.exit(0);
 
 const results = [];
+if (!process.argv.includes('--sync-only')) {
 for (let i = 0; i < points.length; i += BATCH) {
   const batch = points.slice(i, i + BATCH);
   const coords = [origin, ...batch].map((p) => `${p.lon},${p.lat}`).join(';');
@@ -59,4 +63,22 @@ const done = new Set(results.map((r) => `${r.origin_id}|${r.target_type}|${r.tar
 travel.routes = [...travel.routes.filter((r) => !done.has(`${r.origin_id}|${r.target_type}|${r.target_id}`)), ...results]
   .sort((a, b) => `${a.origin_id}${a.target_id}`.localeCompare(`${b.origin_id}${b.target_id}`));
 writeFileSync(new URL('data/travel.json', root), JSON.stringify(travel, null, 2) + '\n');
-console.log(`Wrote ${results.length} routes. Run node scripts/validate.mjs.`);
+console.log(`Wrote ${results.length} routes.`);
+}
+
+// Copy the Ann Arbor route to each research record with a township GEOID (county-level records stay null).
+const SYNC_ORIGIN = 'ann-arbor';
+const routeFor = new Map(travel.routes
+  .filter((r) => r.origin_id === SYNC_ORIGIN && r.target_type === 'township_point' && r.drive_minutes != null)
+  .map((r) => [r.target_id, r]));
+const data = read('data/townships.json');
+let synced = 0;
+for (const rec of data.records) {
+  const r = rec.geoid && routeFor.get(rec.geoid);
+  if (!r) continue;
+  rec.drive_minutes = r.drive_minutes;
+  rec.drive_basis = `Routed to township interior point (not a property), ${r.engine}, ${r.traffic}, retrieved ${r.retrieved}; road snap ${r.snap_meters} m. See data/travel.json.`;
+  synced++;
+}
+writeFileSync(new URL('data/townships.json', root), JSON.stringify(data, null, 2) + '\n');
+console.log(`Synced drive times onto ${synced} research records. Run node scripts/validate.mjs.`);
