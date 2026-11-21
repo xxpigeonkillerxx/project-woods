@@ -30,9 +30,9 @@
       "issuer": "LeRoy Township",
       "source_type": "official_web_page",
       "document_date": null,
-      "accessed": null,
-      "section": null,
-      "note": null
+      "accessed": "2026-11-21",
+      "section": "Camping Ordinance notice",
+      "note": "\"Camping on a parcel of property that extends past 4 days per year must obtain a permit.\" Also: \"All zoning is completed at the township level, while permits are handled by the Osceola County Building Department.\" The camping ordinance itself is not posted on the township site."
     },
     {
       "id": "src-004",
@@ -52,9 +52,9 @@
       "issuer": "Frederic Township",
       "source_type": "official_web_page",
       "document_date": null,
-      "accessed": null,
+      "accessed": "2026-11-21",
       "section": null,
-      "note": null
+      "note": "Index lists \"Frederic Township Zoning Ordinance effective 9-19-19 AMENDED 2026\" and \"CAMPING ORDINANCE 2012-5\"."
     },
     {
       "id": "src-006",
@@ -92,13 +92,13 @@
     {
       "id": "src-009",
       "url": "https://www.ocmi.us/wp-content/uploads/Zoning-Ordinance.pdf",
-      "title": "Ogemaw County Zoning Ordinance",
+      "title": "Ogemaw County Zoning Ordinance (amended May 2025)",
       "issuer": "Ogemaw County",
       "source_type": "ordinance",
       "document_date": null,
-      "accessed": null,
-      "section": null,
-      "note": null
+      "accessed": "2026-11-21",
+      "section": "§2.1 Jurisdiction; §2.10.C Storage on Vacant Lots (7/2023); §2.12.A.5 accessory buildings; §2.19.A",
+      "note": "§2.10.C.4: \"Recreational vehicles are allowed in any residential zoning district (CD, CE, A/RP, R-1, R-2, R-3, and WF) for a maximum of fourteen (14) days in any thirty (30) day period. Tents and/or recreational vehicles must be removed from the property for the remainder of the thirty (30) day period. Limit three (3) camping vehicles or three (3) tents per parcel or a combination of both.\" §2.10.C.5: one RV may remain April 1–November 30 \"if connected to a septic and well approved by the District #2 Health Department. Outhouses or similar temporary structures used to store human waste are prohibited.\" §2.12.A.5: \"On parcels of land two (2) acres or larger, no septic permit is required if the proposed building does not include plumbing, and no space must be designated for a future dwelling.\" §2.1: jurisdiction is all land outside cities and villages \"and Edwards Township\"; \"WEST BRANCH TOWNSHIP ASSUMED THEIR OWN ZONING 12/16/05\". Cover dates: amended June 2022, July 2023, May 2025 (PDF created 2025-08-20)."
     },
     {
       "id": "src-010",
@@ -125,13 +125,13 @@
     {
       "id": "src-012",
       "url": "https://wexfordcounty.org/?page_id=186",
-      "title": "Wexford County building department page",
+      "title": "Wexford County Building Department page",
       "issuer": "Wexford County",
       "source_type": "official_web_page",
       "document_date": null,
-      "accessed": null,
+      "accessed": "2026-11-21",
       "section": null,
-      "note": null
+      "note": "Zoning contact list: \"Colfax, Greenwood, Liberty and Henderson Township- No Zoning\". Disagrees with the Wexford Joint Planning Commission on Liberty."
     },
     {
       "id": "src-013",
@@ -151,9 +151,9 @@
       "issuer": "Norwich Township",
       "source_type": "official_web_page",
       "document_date": null,
-      "accessed": null,
+      "accessed": "2026-11-21",
       "section": null,
-      "note": null
+      "note": "Lists zoning districts AG, R-1, C, LR and W (Wilderness: \"Undeveloped and natural lands preserved in their natural state, in areas surrounded by and/or adjacent to the Manistee National Forest\"). Posts \"Zoning Ordinance 2013 incl. 2017 Revisions\" and \"Ordinance 2016-2 — Camping\"."
     },
     {
       "id": "src-015",
@@ -495,6 +495,127 @@
       "accessed": "2026-11-20",
       "section": null,
       "note": "Emailed reply (county-wide, not township-specific): an owner may tent camp overnight on vacant private land with no county permit, minimum lot size or annual day limit, and may return over multiple years without building a house; a seasonal platform yurt is OK; any structure 200 sq ft or larger needs a county building permit, and electrical, mechanical or plumbing work needs its own permits; toilet and wastewater questions go to the health department; not aware of separate camping ordinances but advised checking township rules and deed restrictions."
+    },
+    {
+      "id": "src-046",
+      "url": "https://leroytwposceola.org/wp-content/uploads/2022/05/LeRoy-Zoning-Ordinance.pdf",
+      "title": "LeRoy Township Zoning Ordinance (2005)",
+      "issuer": "LeRoy Township",
+      "source_type": "ordinance",
+      "document_date": null,
+      "section": "§10.1201; §10.1407",
+      "note": "§10.1201: \"Tents, and/or recreational vehicles and/or automobile trailers shall not be used for dwelling purposes within the township limits; provided, however, that recreational vehicles or automobile trailers may be used for temporary dwellings for a total period of not more than 90 days in any one year when located upon premises having running water and sewage facilities\". §10.1407: \"No accessory building or use shall be used or engaged in prior to the establishment of the principal building or use upon the premises except as a construction facility for said principal building.\" Township lists this as its current ordinance (with a 2021 amendment on C-1 uses).",
+      "accessed": "2026-11-21"
+    },
+    {
+      "id": "src-047",
+      "url": "https://frederictownship.org/wp-content/uploads/2026/02/Frederic-Township-Zoning-Ordinance-effective-9-19-19-AMENDED-2026.pdf",
+      "title": "Frederic Township Zoning Ordinance (effective 2019-09-19, amended 2026)",
+      "issuer": "Frederic Township",
+      "source_type": "ordinance",
+      "document_date": "2019-09-19",
+      "section": "§3.13.H; §3.14",
+      "note": "§3.14: \"Camping in recreational units on private property shall be allowed in all districts except industrial and commercial. A. Two (2) recreational units are allowed on all lots for an unlimited period of time. More than two (2) recreational units on one (1) lot at one time shall be allowed for no more than thirty (30) consecutive days. A zoning permit is required ... B. Recreational units shall be allowed to be placed on a lot without a primary building.\" Units must be \"moveable and road legal\"; wastewater per District Health Department; \"not to be used as permanent dwelling units.\" \"Recreational unit\" means trailers, RVs, campers; tents are listed under \"Recreational Equipment\", not recreational units. §3.13.H.2: outside R-1, \"an accessory building shall be allowed without a principal building.\" §3.13: \"All accessory buildings require zoning permits.\" PDF last modified 2026-02-18.",
+      "accessed": "2026-11-21"
+    },
+    {
+      "id": "src-048",
+      "url": "https://frederictownship.org/wp-content/uploads/2019/04/Camping-Ordinance-2012-5.pdf",
+      "title": "Frederic Township Ordinance #2012-5 (Camping with a Recreational Unit)",
+      "issuer": "Frederic Township",
+      "source_type": "ordinance",
+      "document_date": "2012-08-31",
+      "section": "former §7.16",
+      "note": "Scanned zoning amendment, adopted 2012-08-14, effective 2012-08-31: \"Camping on private property shall be allowed in all districts except industrial and commercial.\" Carried forward and expanded as §3.14 of the 2019 zoning ordinance.",
+      "accessed": "2026-11-21"
+    },
+    {
+      "id": "src-049",
+      "url": "https://www.wexfordjpc.org/",
+      "title": "Wexford Joint Planning Commission home page",
+      "issuer": "Wexford Joint Planning Commission",
+      "source_type": "official_web_page",
+      "document_date": null,
+      "section": null,
+      "note": "Serves Antioch, Boon, Cherry Grove, Hanover, Liberty, Selma, Slagle, South Branch, Springville and Wexford townships. Under \"Zoning for other areas of Wexford County\": \"(There is no zoning in Colfax, Greenwood, or Henderson Townships)\". The About page lists an amendment for \"Greenwood Township's withdrawal from the WJPC\"; the Zoning Ordinance page posts a \"Zoning map detail for Liberty Township\".",
+      "accessed": "2026-11-21"
+    },
+    {
+      "id": "src-050",
+      "url": "https://norwichtwp.org/zoning/ordinance-2016-2-camping.pdf",
+      "title": "Norwich Township Ordinance No. 2016-2 (camping and trailers)",
+      "issuer": "Norwich Township (Newaygo County)",
+      "source_type": "ordinance",
+      "document_date": "2016-11-12",
+      "section": "Zoning Ordinance §3.30E as amended",
+      "note": "Scanned. Replaces §3.30E \"in full\". Camping trailers (travel trailers, motor homes, fifth-wheelers, campers) \"shall not be used for camping ... unless\" rules are met: no camping Jan 1–end of Feb without a written winter camping permit; \"Each camping trailer must be removed from the lot or parcel on which it is used or stored for at least 60 continuous days per calendar year\"; max four per parcel; must \"register the camping trailer with the Township Zoning Administrator prior to any such camping\"; sewage and water per health department and state law; no permanent residential use; \"One storage shed with a ground dimension no larger than 8 feet by 10 feet is allowed for use accessory to a camping trailer ... shall not be on a permanent foundation\"; one platform up to 6 x 8 ft; no in-ground septic, well or electric service with a camping trailer unless there is a lawful year-round dwelling, or the Zoning Administrator issues a zoning permit. Adopted at the 2016-11-12 board meeting; effective 7 days after publication. Does not address tents.",
+      "accessed": "2026-11-21"
+    },
+    {
+      "id": "src-051",
+      "url": "https://norwichtwp.org/zoning/zoning-ordinance-2013-2017.pdf",
+      "title": "Norwich Township Zoning Ordinance (adopted 2013-04-10, incl. 2017 revisions)",
+      "issuer": "Norwich Township (Newaygo County)",
+      "source_type": "ordinance",
+      "document_date": "2013-04-10",
+      "section": "§3.30; Article 11 W Wilderness",
+      "note": "Posted compilation still prints the pre-2016 §3.30E (temporary use permits \"for only 60 contiguous days in total per calendar year\", outhouses only if approved by the health department). §3.30C: \"Recreational vehicles owned by residents or property owners within the Township shall not be connected to water or sanitary facilities, nor shall they be occupied.\" Article 11 W Wilderness: permitted uses are single family dwellings, public parks, agriculture, home occupations; private campgrounds by special use.",
+      "accessed": "2026-11-21"
+    },
+    {
+      "id": "src-052",
+      "url": "https://laketownshiplcmi.gov/departments/zoning-land-uses/",
+      "title": "Lake Township (Lake County) Zoning – Land Uses page",
+      "issuer": "Lake Township, Lake County",
+      "source_type": "official_web_page",
+      "document_date": null,
+      "section": null,
+      "note": "Baldwin-area Lake Township in Lake County (not the Lake townships in Missaukee, Benzie, Roscommon or elsewhere). Posts \"Zoning Ordinance 8-15-2026\" and \"Zoning Map 2026\". Home page also lists a separate \"DRAFT – Zoning Ordinance 6-10-2026\".",
+      "accessed": "2026-11-21"
+    },
+    {
+      "id": "src-053",
+      "url": "https://laketownshiplcmi.gov/wp-content/uploads/2026/08/Entire-ZO-8-15-2026-final-1.pdf",
+      "title": "Lake Township (Lake County) Zoning Ordinance, version 8-15-2026",
+      "issuer": "Lake Township, Lake County",
+      "source_type": "ordinance",
+      "document_date": "2026-08-15",
+      "section": "§2 definitions; §3.8.E; §3.24; §3.25",
+      "note": "Definition: \"RECREATIONAL VEHICLE or RECREATIONAL EQUIPMENT\" includes \"motor homes, campers, camper trailers ... tents, and utility trailers\". §3.24.B: \"The recreational use of recreational vehicles is permitted when used exclusively for owner occupied ... recreational purposes\"; placement needs setbacks and \"potable water and sanitary waste disposal as approved by the Health Department\"; \"in districts zoned R-1 shall be allowed between April 1 and December 31 each year and in districts zoned R-2 and Ag/F placement/occupancy shall be allowed year round (even without a dwelling on site) so long as legal lot setbacks, potable water and proper septic system are available.\" §3.8.E(2): \"Not more than one accessory storage building, not to exceed 100 square feet or more than 10 feet in height, may be erected on any vacant lot or parcel\"; Land Use Permit and site plan required; no sleeping in it. §3.25: outhouses only in AG-F, minimum 2.5 acres and 200 ft width, 50 ft setbacks, health department permit. Original ordinance effective 1997-08-02.",
+      "accessed": "2026-11-21"
+    },
+    {
+      "id": "src-054",
+      "url": "https://www.sheridantwpclareco.com/wp-content/uploads/2026/03/Building-Permit-Checklist.pdf",
+      "title": "Grant & Sheridan Township (Clare County) Building Permit Checklist",
+      "issuer": "Grant & Sheridan Township Permit Department",
+      "source_type": "official_web_page",
+      "document_date": null,
+      "section": "ZONING",
+      "note": "\"Grant & Sheridan Township- Clare County, do not have zoning, but, do have set back requirements for any structures. (10' side; 20' easement)\". Also references a mobile home ordinance (no mobile homes older than 1978) and \"IT IS ILLEGAL TO OCCUPY/ USE THE STRUCTURE PRIOR TO OBTAINING AN OCCUPANCY PERMIT.\" Upload folder dated 2026/03.",
+      "accessed": "2026-11-21"
+    },
+    {
+      "id": "src-055",
+      "url": "https://www.isabellacounty.org/departments/community-development/planning-zoning/administration-enforcement/",
+      "title": "Isabella County Planning & Zoning: Administration & Enforcement",
+      "issuer": "Isabella County Community Development",
+      "source_type": "official_web_page",
+      "document_date": null,
+      "section": null,
+      "note": "\"Isabella County currently has zoning jurisdiction in the following townships: Broomfield, Isabella, Sherman, Coldwater, Lincoln, Vernon, Denver, Nottawa, Gilmore, Rolland.\" \"Zoning permits are typically required for any building or structure even if it is temporary or movable, on skids or a foundation.\" \"Zoning permits are not required for residential accessory buildings or structures 200 square feet or less. However you are required to still maintain the district front, side and rear setback requirements.\"",
+      "accessed": "2026-11-21"
+    },
+    {
+      "id": "src-056",
+      "url": "https://www.isabellacounty.org/wp-content/uploads/2024/08/Zoning-Ordinance-Current.pdf",
+      "title": "Isabella County Zoning Ordinance (effective 1989-02-15, amendments through 2026)",
+      "issuer": "Isabella County",
+      "source_type": "ordinance",
+      "document_date": "1989-02-15",
+      "section": "§3.02.B; §3.28.C.3",
+      "note": "§3.02.B.1.c (Agricultural Districts AG-1, AG-2, AG-3): \"Accessory buildings and structures may be constructed on a lot without a principal building.\" §3.02.B.2.d (R-1, R-2, L-R): not without a principal building, except one accessory building up to 864 sq ft on a non-waterfront L-R lot. §3.28.C.3 (with a temporary permit): \"An individual recreational vehicle or manufactured home may be approved in agricultural and L-R Districts as a temporary dwelling for a period up to 90 consecutive days per calendar year for recreational purposes only.\" Tents are defined but no private tent-camping rule was found. Cover: \"THIS DOCUMENT CONTAINS ALL AMENDMENTS TO ORDINANCE THROUGH 2026\".",
+      "accessed": "2026-11-21"
     }
   ]
 }
